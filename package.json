@@ -27,7 +27,7 @@
     "release:premajor": "npm version premajor && npm run publish",
     "release:major": "npm version major && npm run publish"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "^15.0.0",
     "@angular/common": "^15.0.0",
