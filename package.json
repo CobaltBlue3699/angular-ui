@@ -12,7 +12,7 @@
     "format": "prettier --write \"projects/showcase/src/**/*.ts\" \"projects/angular-ui/src/**/*.ts\"",
     "ng": "ng",
     "start": "ng serve showcase",
-    "build": "npm run build:au && ng build showcase --base-href /showcase/",
+    "build": "npm run build:au && ng build showcase --base-href /angular-ui/",
     "watch": "ng build showcase --watch --configuration development",
     "build:au": "ng run angular-ui:build && npx tailwindcss -c projects/angular-ui/tailwind.config.js -i projects/angular-ui/src/tailwind.scss -o dist/angular-ui/style.css && node postbuild.js",
     "dev:au": "ng run angular-ui:build --watch",
