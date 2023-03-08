@@ -21,7 +21,7 @@ export class OverviewComponent {
 	`;
 
   sampleTsCode = `
-	import { AlertService } from '@johnson-lee/angular-ui';
+	import { AlertService } from '@johnson.lee/angular-ui';
 	import { Component, OnInit } from '@angular/core';
 
 	@Component({
@@ -30,7 +30,7 @@ export class OverviewComponent {
 		styleUrls: ['./demo-alert.component.scss'],
 	})
 	export class DemoAlertComponent {
-		// import { AlertService } from @johnson-lee/angular-ui";
+		// import { AlertService } from @johnson.lee/angular-ui";
 		constructor(private alertService: AlertService) {}
 		successAlert() {
 			this.alertService.successAlert('success message');

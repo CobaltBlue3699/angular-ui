@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./api.component.scss'],
 })
 export class ApiComponent {
-  importAlert = `import { AlertModule } from '@johnson-lee/angular-ui';`;
+  importAlert = `import { AlertModule } from '@johnson.lee/angular-ui';`;
 }
