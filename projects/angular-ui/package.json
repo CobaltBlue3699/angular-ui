@@ -1,18 +1,17 @@
 {
     "name": "@johnson-lee/angular-ui",
     "version": "1.0.0-7",
+    "private": false,
     "keywords": [
         "angular",
-        "cdk",
         "component",
-        "development",
         "kit",
         "ui",
         "元件"
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://bitbucket.org/johnson_li3699/angular-ui.git"
+        "url": "git+https://github.com/CobaltBlue3699/angular-ui.git"
     },
     "homepage": "https://npm.omnistorpoc.com/showcase/",
     "peerDependencies": {
