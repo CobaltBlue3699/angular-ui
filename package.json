@@ -5,7 +5,7 @@
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "postpublish": "",
-    "publish": "npm run prepublishOnly && npm run prepare && cd dist/angular-ui && npm publish && cd ../../ && npm run postpublish",
+    "publish": "npm run prepublishOnly && npm run prepare && cd dist/angular-ui && npm publish --access public && cd ../../ && npm run postpublish",
     "version": "npm run format",
     "preversion": "npm run lint",
     "postversion": "node sync-version.js && git push && git push --tags",
