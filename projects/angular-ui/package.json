@@ -1,7 +1,6 @@
 {
-    "name": "@johnson-lee/angular-ui",
+    "name": "@johnson.lee/angular-ui",
     "version": "1.0.0-9",
-    "private": false,
     "keywords": [
         "angular",
         "component",
@@ -28,5 +27,8 @@
             "import": "./dist/style.css",
             "require": "./dist/style.css"
         }
+    },
+    "publishConfig": {
+      "access": "public"
     }
 }
