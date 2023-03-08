@@ -1,0 +1,56 @@
+import { Nullable } from '../common/index';
+import { uniqueId } from 'lodash';
+import { ControlValueAccessor } from '@angular/forms';
+import { ChangeDetectorRef, Component, Injector, Input, Type } from '@angular/core';
+
+@Component({ template: '' })
+export class AbstractNgModelComponent<T = any> implements ControlValueAccessor {
+  @Input()
+  cid: string = uniqueId();
+
+  @Input()
+  disabled: boolean = false;
+
+  @Input()
+  set value(value: any) {
+    this._value = value;
+    this.notifyValueChange();
+  }
+
+  get value(): any {
+    return this._value;
+  }
+
+  onChange: Nullable<(value: any) => void> = null;
+  onTouched: Nullable<(value: any) => void> = null;
+
+  protected _value: any;
+  protected cdRef: ChangeDetectorRef;
+
+  constructor(public injector: Injector) {
+    this.cdRef = injector.get<ChangeDetectorRef>(ChangeDetectorRef as Type<ChangeDetectorRef>);
+  }
+
+  notifyValueChange(): void {
+    if (this.onChange) {
+      this.onChange(this.value);
+    }
+  }
+
+  writeValue(value: any): void {
+    this._value = value;
+    setTimeout(() => this.cdRef.detectChanges(), 0);
+  }
+
+  registerOnChange(fn: (value: any) => {}): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
+}

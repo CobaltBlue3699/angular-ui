@@ -1,0 +1,15 @@
+{
+  "index": "使用導覽",
+  "success": "成功",
+  "error": "錯誤",
+  "info": "訊息",
+  "warning": "警告",
+  "guide": "說明",
+  "button": "按鈕",
+  "alert": "訊息通知",
+  "recover": "復原",
+  "cancel": "取消",
+  "MANUAL": "手動",
+  "OVERTIME": "逾時",
+  "nonsense": "這是一段看似有內容，卻毫無意義的文字。"
+}

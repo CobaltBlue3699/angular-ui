@@ -1,0 +1,50 @@
+blockquote {
+  line-height: 1.6;
+  position: relative;
+  margin: 35px 0;
+  background: #f9eff1;
+  padding: 20px;
+  border-radius: 3px;
+
+  &:before {
+    height: 100%;
+    width: 4px;
+    content: "";
+    background: #ed2945;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+
+  &.info {
+    background: rgba(8,148,226,.038);
+    strong, a {
+      color: #0894e2
+    }
+    &:before {
+      background: #0894e2;
+    }
+  }
+
+  &.warning {
+    background: rgba(8,148,226,.038);
+    strong, a {
+      color: #ed8529
+    }
+    &:before {
+      background: #ffb36f;
+    }
+  }
+
+}
+
+blockquote strong:first-of-type {
+  display: block;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 700;
+}

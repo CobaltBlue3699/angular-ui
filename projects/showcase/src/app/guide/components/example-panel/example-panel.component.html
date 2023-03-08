@@ -1,0 +1,20 @@
+<app-panel #customEventPanel name="custom event overview">
+  <button [appTooltip]="showCode ? 'Hide code' : 'View code'" appTooltipPosition="right"
+    class="header-button px-4 text-gray-200 flex text-xs" (click)="showCode = !showCode;">
+    <i class="fa-solid fa-code leading-6"></i>
+  </button>
+  <div class="p-5" *ngIf="!showCode; else code;">
+    <ng-container [ngTemplateOutlet]="exampleBlock" [ngTemplateOutletContext]="{
+      $implicit: showCode,
+      showCode: showCode
+    }">
+    </ng-container>
+  </div>
+  <ng-template #code>
+    <ng-container [ngTemplateOutlet]="codeBlock" [ngTemplateOutletContext]="{
+      $implicit: showCode,
+      showCode: showCode
+    }">
+    </ng-container>
+  </ng-template>
+</app-panel>

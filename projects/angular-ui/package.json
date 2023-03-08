@@ -1,0 +1,33 @@
+{
+    "name": "@johnson-lee/angular-ui",
+    "version": "1.0.0-4",
+    "keywords": [
+        "angular",
+        "cdk",
+        "component",
+        "development",
+        "kit",
+        "ui",
+        "元件"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://bitbucket.org/johnson_li3699/angular-ui.git"
+    },
+    "homepage": "https://npm.omnistorpoc.com/showcase/",
+    "peerDependencies": {
+        "@angular/common": "^15.0.0",
+        "@angular/core": "^15.0.0",
+        "@ngx-translate/core": "^14.0.0",
+        "@ngx-translate/http-loader": "^7.0.0"
+    },
+    "dependencies": {
+        "tslib": "^2.3.0"
+    },
+    "exports": {
+        "./dist/style.css": {
+            "import": "./dist/style.css",
+            "require": "./dist/style.css"
+        }
+    }
+}

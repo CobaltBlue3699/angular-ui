@@ -1,0 +1,174 @@
+<p class="mt-3">The alert service can be used to open alert dialogs with design styling.</p>
+<div class="border-b mt-2 border-b-gray-300 pt-5 pb-5">
+  <app-example-panel>
+    <ng-template #exampleBlock>
+      <button class="rounded-md border border-b-green-300 px-3 py-2 mx-3 duration-300 active:border-green-600"
+        (click)="alertSuccess()">success</button>
+      <button class="rounded-md border border-b-sky-300 px-3 py-2 mx-3 duration-300 active:border-sky-600"
+        (click)="alertInfo()">info</button>
+      <button class="rounded-md border border-b-orange-300 px-3 py-2 mx-3 duration-300 active:border-orange-600"
+        (click)="alertWarning()">warning</button>
+      <button class="rounded-md border border-b-red-300 px-3 py-2 mx-3 duration-300 active:border-red-600"
+        (click)="alertError()">error</button>
+    </ng-template>
+    <ng-template #codeBlock>
+      <app-tabs>
+        <button tabs-button [appTooltip]="copyToolTipText" appTooltipPosition="right"
+          class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(currentCode);">
+          <i class="fa-regular fa-copy"></i>
+        </button>
+        <app-tab (active)="currentCode = sampleHtmlCode;" [name]="'html'">
+          <code [highlight]="sampleHtmlCode"></code>
+        </app-tab>
+        <app-tab (active)="currentCode = sampleTsCode;" [name]="'ts'">
+          <code [highlight]="sampleTsCode"></code>
+        </app-tab>
+      </app-tabs>
+    </ng-template>
+  </app-example-panel>
+</div>
+
+<div class="border-b border-b-gray-300 pt-5 pb-5">
+  <p>A alert is opened by calling the open method with a component to be loaded and an optional config object. The open
+    method will return an instance of AlertRef:</p>
+  <app-simple-code [code]="alertUsage"></app-simple-code>
+  
+  <p>The <code>AlertRef</code> provides a handle on the opened alert.</p>
+  <p class="mb-2">It can be used to close the alert and to receive notifications when the alert has been closed. Any notification
+    Observables will complete when the alert closes.</p>
+  
+  <app-simple-code [code]="alertCloseUsage"></app-simple-code>
+</div>
+
+<div class="border-b border-b-gray-300 pt-5 pb-5">
+  <p>You could add events for user to interact, by given parameter <code>otherActions</code> to alert functions.</p>
+  <p>Notifications will fire if the alert is closed.</p>
+  <app-example-panel>
+    <ng-template #exampleBlock>
+      <button class="rounded-md border border-b-sky-300 px-3 py-2 mx-3 duration-300 active:border-sky-600"
+        (click)="alertInfoWithActions('cancel', 'recover')">fire alert with cancel and a recover button</button>
+    </ng-template>
+    <ng-template #codeBlock>
+      <app-tabs>
+        <button tabs-button [appTooltip]="copyToolTipText" appTooltipPosition="right"
+          class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(actionsTsCode);">
+          <i class="fa-regular fa-copy"></i>
+        </button>
+        <app-tab [name]="'ts'">
+          <code [highlight]="actionsTsCode"></code>
+        </app-tab>
+      </app-tabs>
+    </ng-template>
+  </app-example-panel>
+</div>
+
+<div class="border-b border-b-gray-300 pt-5 pb-5">
+  <h3 class="mt-3 mb-5" appAnchor name="global config">Specifying global configuration defaults</h3>
+  <p>Default alert options can be specified by providing an instance of <code>AlertOption</code> for
+    <code>ALERT_DEFAULT_OPTIONS</code> in your application's root module.</p>
+  <app-simple-code
+    name="app.module.ts"
+    [code]="alertGlobalConfigSample">
+  </app-simple-code>
+</div>
+
+<div class="border-b border-b-gray-300 pt-5 pb-5">
+  <h3 class="mb-5" appAnchor name="customize template">{{ 'customize your alert' | titlecase }}</h3>
+  <p>you can customize your alert by given your ng-template.</p>
+
+  <h4 class="mt-5 mb-3">successTemplate</h4>
+  <p>Use <code class="bg-gray-300">#successTemplate</code> for the content of the successAlert.</p>
+  <p>You will have access to the following variables:</p>
+  <p>alertRef: of type <code>AlertRef</code>. Exposes all Alert's properties and methods.</p>
+  <app-panel name="successTemplate">
+    <app-tabs>
+      <button tabs-button [appTooltip]="copyToolTipText" appTooltipPosition="right"
+        class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(successTemplate);">
+        <i class="fa-regular fa-copy"></i>
+      </button>
+      <app-tab name="html">
+        <code [highlight]="successTemplate"></code>
+      </app-tab>
+    </app-tabs>
+  </app-panel>
+
+  <h4 class="mt-5 mb-3">infoTemplate</h4>
+  <p>Use <code class="bg-gray-300">#infoTemplate</code> for the content of the infoAlert.</p>
+  <p>You will have access to the following variables:</p>
+  <p>alertRef: of type <code>AlertRef</code>. Exposes all Alert's properties and methods.</p>
+  <app-panel name="infoTemplate">
+    <app-tabs>
+      <button tabs-button [appTooltip]="copyToolTipText" appTooltipPosition="right"
+        class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(infoTemplate);">
+        <i class="fa-regular fa-copy"></i>
+      </button>
+      <app-tab name="html">
+        <code [highlight]="infoTemplate"></code>
+      </app-tab>
+    </app-tabs>
+  </app-panel>
+
+  <h4 class="mt-5 mb-3">warningTemplate</h4>
+  <p>Use <code class="bg-gray-300">#warningTemplate</code> for the content of the warningAlert.</p>
+  <p>You will have access to the following variables:</p>
+  <p>alertRef: of type <code>AlertRef</code>. Exposes all Alert's properties and methods.</p>
+  <app-panel name="infoTemplate">
+    <app-tabs>
+      <button tabs-button [appTooltip]="copyToolTipText" appTooltipPosition="right"
+        class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(warningTemplate);">
+        <i class="fa-regular fa-copy"></i>
+      </button>
+      <app-tab name="html">
+        <code [highlight]="warningTemplate"></code>
+      </app-tab>
+    </app-tabs>
+  </app-panel>
+
+  <h4 class="mt-5 mb-3">errorTemplate</h4>
+  <p>Use <code class="bg-gray-300">#errorTemplate</code> for the content of the errorAlert.</p>
+  <p>You will have access to the following variables:</p>
+  <p>alertRef: of type <code>AlertRef</code>. Exposes all Alert's properties and methods.</p>
+  <app-panel name="errorTemplate">
+    <app-tabs>
+      <button tabs-button [appTooltip]="copyToolTipText" appTooltipPosition="right"
+        class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(errorTemplate);">
+        <i class="fa-regular fa-copy"></i>
+      </button>
+      <app-tab name="html">
+        <code [highlight]="errorTemplate"></code>
+      </app-tab>
+    </app-tabs>
+  </app-panel>
+</div>
+
+<div class="border-b border-b-gray-300 pt-5 pb-5">
+  <h4 class="mt-5 mb-3">alertFullTemplate</h4>
+  <p>This is useful in case all you need to further customise the alert's location.</p>
+  <p class="mt-2">Start by specifying the following template, and make sure the alerts still renders as expected.
+    Then remove / change whatever you need:</p>
+  <app-panel name="alertFullTemplate">
+    <app-tabs>
+      <button tabs-button [appTooltip]="copyToolTipText" appTooltipPosition="right"
+        class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(alertFullTemplate);">
+        <i class="fa-regular fa-copy"></i>
+      </button>
+      <app-tab name="html">
+        <code [highlight]="alertFullTemplate"></code>
+      </app-tab>
+    </app-tabs>
+  </app-panel>
+</div>
+
+<div class="border-b border-b-gray-300 pt-5 pb-5">
+  <app-panel name="Simple Full Example">
+    <app-tabs>
+      <button tabs-button [appTooltip]="copyToolTipText" appTooltipPosition="right"
+        class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(customizeTemplate);">
+        <i class="fa-regular fa-copy"></i>
+      </button>
+      <app-tab name="html">
+        <code [highlight]="customizeTemplate"></code>
+      </app-tab>
+    </app-tabs>
+  </app-panel>
+</div>

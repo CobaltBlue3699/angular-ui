@@ -1,0 +1,44 @@
+<ac-alert>
+  <!-- sample of customize templates -->
+  
+  <!-- <ng-template #alertFullTemplate let-alertRefs="alertRefs" let-templates="templates">
+    <div class="absolute bottom-10 left-5 z-50">
+      <ng-container *ngFor="let alertRef of alertRefs">
+        <ac-alert-wrapper [alertRef]="alertRef" [templates]="templates"></ac-alert-wrapper>
+      </ng-container>
+    </div>
+  </ng-template>
+  <ng-template #successTemplate let-alertRef="alertRef">
+    <div class="bg-green-300 m-5 p-5 w-full rounded">[{{ alertRef.alert.title | translate }}] {{ alertRef.alert.message | translate }}</div>
+  </ng-template>
+  <ng-template #infoTemplate let-alertRef="alertRef">
+    <div class="bg-blue-300 m-5 p-5 w-full rounded">[{{ alertRef.alert.title | translate }}] {{ alertRef.alert.message | translate }}</div>
+  </ng-template>
+  <ng-template #warningTemplate let-alertRef="alertRef">
+    <div class="bg-yellow-600 m-5 p-5 w-full rounded">[{{ alertRef.alert.title | translate }}] {{ alertRef.alert.message | translate }}</div>
+  </ng-template>
+  <ng-template #errorTemplate let-alertRef="alertRef">
+    <div class="bg-red-300 m-5 p-5 w-full rounded">[{{ alertRef.alert.title | translate }}] {{ alertRef.alert.message | translate }}</div>
+  </ng-template> -->
+</ac-alert>
+
+<app-header *ngIf="showHeader"></app-header>
+
+<main role="main" class="overflow-hidden flex flex-col md:flex-row bg-gray-800">
+  <app-sidebar *ngIf="showSidebar"></app-sidebar> <!-- width: 48 -->
+  <div class="flex-1 rounded-tl-3xl">
+    <section>
+      <div id="main" class="main-content bg-gray-100 mt-2 md:mt-2 pb-24 md:pb-5">
+        <div class="bg-gray-800">
+          <div class="rounded-tl-3xl bg-gradient-to-r from-blue-900 to-gray-800 p-4 shadow">
+              <h1 class="pl-2 text-white">{{ currentPath | translate }}</h1>
+          </div>
+        </div>
+        <router-outlet></router-outlet>
+      </div>
+    </section>
+  </div>
+</main>
+
+<app-footer *ngIf="showFooter"></app-footer>
+

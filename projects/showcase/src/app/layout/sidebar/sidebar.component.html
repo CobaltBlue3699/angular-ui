@@ -1,0 +1,26 @@
+<nav aria-label="alternative nav">
+  <div class="hidden md:block bg-gray-800 shadow-xl relative h-screen z-10 duration-200"
+    [class.w-12]="isShrink"
+    [class.md:w-48]="!isShrink">
+    <div class="md:w-48 md:fixed md:left-0 md:top-0 content-center md:content-start text-left justify-between md:relative">
+      <ul
+        class="scroll-smooth hover:scroll-auto list-reset flex flex-row md:flex-col py-0 md:py-3 text-center md:text-left">
+        <li (click)="isShrink = !isShrink;" class="py-1 md:py-3 pl-3 text-xs no-underline md:text-base">
+          <svg class="w-[20px] fill-white  hover:fill-white fill-gray-600 md:fill-gray-400" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+          </svg>
+        </li>
+        <li *ngFor="let route of routes" [routerLink]="'/guide/' + route.path" [routerLinkActiveOptions]="{ exact: false }" [routerLinkActive]="['bg-gray-900', 'text-white']">
+          <a *ngIf="route.path && !isShrink"
+            class="hover:text-white flex block py-1 md:py-3 pl-3 align-middle text-white text-xs no-underline md:text-base text-gray-600 md:text-gray-400">
+            <span *ngIf="route.data?.iconHtml">
+              <span class="pr-0 md:pr-3" [innerHtml]="route.data?.iconHtml"></span>
+            </span>
+            <span class="pb-1 md:pb-0 block md:inline-block">
+              {{ route.path | translate }}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
