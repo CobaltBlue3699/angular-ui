@@ -1,6 +1,6 @@
 {
     "name": "@johnson.lee/angular-ui",
-    "version": "1.0.0-9",
+    "version": "1.0.0-10",
     "keywords": [
         "angular",
         "component",
@@ -29,6 +29,6 @@
         }
     },
     "publishConfig": {
-      "access": "public"
+        "access": "public"
     }
 }
