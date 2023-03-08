@@ -12,7 +12,7 @@
         "type": "git",
         "url": "git+https://github.com/CobaltBlue3699/angular-ui.git"
     },
-    "homepage": "https://npm.omnistorpoc.com/showcase/",
+    "homepage": "https://cobaltblue3699.github.io/angular-ui/",
     "peerDependencies": {
         "@angular/common": "^15.0.0",
         "@angular/core": "^15.0.0",
