@@ -25,17 +25,17 @@ export class ApiComponent {
               parameters: [
                 {
                   name: `message: string`,
-                  description: `Success message.`
+                  description: `Success message.`,
                 },
                 {
                   name: `options?: AlertOption`,
-                  description: `Options that controll alert instance's behavior. like title, dismissable...`
-                }
+                  description: `Options that controll alert instance's behavior. like title, dismissable...`,
+                },
               ],
               return: {
                 name: `AlertRef`,
-                description: `Reference to the newly-opened alert.`
-              }
+                description: `Reference to the newly-opened alert.`,
+              },
             },
             {
               name: `info: AlertRef`,
@@ -43,17 +43,17 @@ export class ApiComponent {
               parameters: [
                 {
                   name: `message: string`,
-                  description: `Message.`
+                  description: `Message.`,
                 },
                 {
                   name: `options?: AlertOption`,
-                  description: `Options that controll alert instance's behavior. like title, dismissable...`
-                }
+                  description: `Options that controll alert instance's behavior. like title, dismissable...`,
+                },
               ],
               return: {
                 name: `AlertRef`,
-                description: `Reference to the newly-opened alert.`
-              }
+                description: `Reference to the newly-opened alert.`,
+              },
             },
             {
               name: `warning: AlertRef`,
@@ -61,17 +61,17 @@ export class ApiComponent {
               parameters: [
                 {
                   name: `message: string`,
-                  description: `Warning message.`
+                  description: `Warning message.`,
                 },
                 {
                   name: `options?: AlertOption`,
-                  description: `Options that controll alert instance's behavior. like title, dismissable...`
-                }
+                  description: `Options that controll alert instance's behavior. like title, dismissable...`,
+                },
               ],
               return: {
                 name: `AlertRef`,
-                description: `Reference to the newly-opened alert.`
-              }
+                description: `Reference to the newly-opened alert.`,
+              },
             },
             {
               name: `error: AlertRef`,
@@ -79,21 +79,21 @@ export class ApiComponent {
               parameters: [
                 {
                   name: `message: string`,
-                  description: `Error message.`
+                  description: `Error message.`,
                 },
                 {
                   name: `options?: AlertOption`,
-                  description: `Options that controll alert instance's behavior. like title, dismissable...`
-                }
+                  description: `Options that controll alert instance's behavior. like title, dismissable...`,
+                },
               ],
               return: {
                 name: `AlertRef`,
-                description: `Reference to the newly-opened alert.`
-              }
-            }
-          ]
-        }
-      ]
+                description: `Reference to the newly-opened alert.`,
+              },
+            },
+          ],
+        },
+      ],
     },
     {
       name: `Classes`,
@@ -105,17 +105,17 @@ export class ApiComponent {
           properties: [
             {
               name: `ttl: number`,
-              description: `time to live.`
+              description: `time to live.`,
             },
             {
               name: `maxInstance: number`,
-              description: `The maximum of alert instance.`
+              description: `The maximum of alert instance.`,
             },
             {
               name: `dismissable: boolean`,
-              description: `Alert can be close manual or not.`
-            }
-          ]
+              description: `Alert can be close manual or not.`,
+            },
+          ],
         },
         {
           name: `AlertRef`,
@@ -128,8 +128,8 @@ export class ApiComponent {
               parameters: [
                 {
                   name: `closeMsg?: string`,
-                  description: `this given message will be emitted through the afterClosed stream.`
-                }
+                  description: `this given message will be emitted through the afterClosed stream.`,
+                },
               ],
             },
             {
@@ -137,13 +137,12 @@ export class ApiComponent {
               description: `Gets an observable that is notified when the alert is finished closing.`,
               return: {
                 name: `Observable<string>`,
-                description: `Stream that emits when the alert have finished closing.`
-              }
-            }
-          ]
-        }
-      ]
-    }
-  ]
-
+                description: `Stream that emits when the alert have finished closing.`,
+              },
+            },
+          ],
+        },
+      ],
+    },
+  ];
 }

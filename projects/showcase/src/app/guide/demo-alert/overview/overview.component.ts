@@ -214,7 +214,9 @@ export class OverviewComponent {
 
   alertInfoWithActions(...actions: string[]) {
     this.alertService
-      .info('it will fire anthor alert that tells you why this alert closed.', { otherActions: actions })
+      .info('it will fire anthor alert that tells you why this alert closed.', {
+        otherActions: actions,
+      })
       .afterClosed()
       .subscribe((res: string) => {
         this.alertService.info(`${res}`, { title: `Event` });

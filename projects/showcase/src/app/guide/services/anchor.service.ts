@@ -37,7 +37,7 @@ export class AnchorService {
   }
 
   getAnchorByName(name: string) {
-    return this._anchors$.value.find(anchor => anchor.name === name);
+    return this._anchors$.value.find((anchor) => anchor.name === name);
   }
 
   get anchors$() {

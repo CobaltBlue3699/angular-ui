@@ -4,9 +4,9 @@ import { Anchor, AnchorService } from '../services/anchor.service';
 import { AnchorDirective } from './anchor.directive';
 
 @Directive({
-  selector: '[appSubAnchor]'
+  selector: '[appSubAnchor]',
 })
-export class SubAnchorDirective  implements AfterViewInit, OnDestroy {
+export class SubAnchorDirective implements AfterViewInit, OnDestroy {
   @Input()
   name!: string;
 
@@ -18,7 +18,8 @@ export class SubAnchorDirective  implements AfterViewInit, OnDestroy {
     private anchorService: AnchorService,
     // The @Optional() decorator tells Angular to inject the AnchorDirective instance if it exists in the component hierarchy,
     // and to inject null if it doesn't.
-    @Optional() private parentAnchor: AnchorDirective) {}
+    @Optional() private parentAnchor: AnchorDirective,
+  ) {}
 
   ngAfterViewInit(): void {
     setTimeout(() => {
@@ -56,7 +57,7 @@ export class SubAnchorDirective  implements AfterViewInit, OnDestroy {
       const parent = this.anchorService.getAnchorByName(this.parentAnchor.name) as Anchor;
       parent.children = parent.children || [];
       if (parent.children.indexOf(this.anchor) < 0) {
-        parent.children.push(this.anchor)
+        parent.children.push(this.anchor);
       }
       this.anchorService.putAnchor(parent);
     }
@@ -66,7 +67,7 @@ export class SubAnchorDirective  implements AfterViewInit, OnDestroy {
     if (this.parentAnchor && this.anchorService.getAnchorByName(this.parentAnchor.name)) {
       const parent = this.anchorService.getAnchorByName(this.parentAnchor.name) as Anchor;
       parent.children = parent.children || [];
-      parent.children = parent.children.filter(anchor => anchor != this.anchor)
+      parent.children = parent.children.filter((anchor) => anchor != this.anchor);
       this.anchorService.putAnchor(parent);
     }
   }

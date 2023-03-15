@@ -24,7 +24,7 @@ export class GuideComponent implements OnInit, OnDestroy {
       .subscribe((anchors) => {
         this.anchors = anchors.flatMap((anchor) => {
           if (anchor.children) {
-            return [anchor, ...anchor.children]
+            return [anchor, ...anchor.children];
           }
           return [anchor];
         });
