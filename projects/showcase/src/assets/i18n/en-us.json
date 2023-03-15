@@ -1,0 +1,15 @@
+{
+  "index": "Home",
+  "success": "Success",
+  "error": "Error",
+  "info": "Info",
+  "warning": "Warning",
+  "guide": "Guide",
+  "button": "button",
+  "alert": "Alert",
+  "recover": "recover",
+  "cancel": "cancel",
+  "MANUAL": "manual",
+  "OVERTIME": "overtime",
+  "nonsense": "this is a readable sentence, but also a nonsense."
+}

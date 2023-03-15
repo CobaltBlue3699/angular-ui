@@ -22,7 +22,12 @@ export class GuideComponent implements OnInit, OnDestroy {
     this.anchorService.anchors$
       .pipe(takeUntil(this.destory$), skip(1), debounceTime(200))
       .subscribe((anchors) => {
-        this.anchors = anchors;
+        this.anchors = anchors.flatMap((anchor) => {
+          if (anchor.children) {
+            return [anchor, ...anchor.children]
+          }
+          return [anchor];
+        });
       });
   }
 }

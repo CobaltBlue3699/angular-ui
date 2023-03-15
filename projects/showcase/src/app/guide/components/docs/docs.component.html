@@ -1,0 +1,90 @@
+<ng-container *ngFor="let docs of docses">
+  <div appAnchor [name]="docs.name">
+    <h3 class="mt-10 mb-10 pb-2 border-b border-gray-300">{{ docs.name }}</h3>
+    <ng-container *ngFor="let column of docs.columns; let last = last;">
+      <h4 class="mb-2" appSubAnchor [name]="column.name">{{ column.name }}</h4>
+      <p class="mb-10" [innerHTML]="column.description"></p>
+  
+      <ng-container *ngIf="column.methods">
+        <strong>Methods</strong>
+        <ng-container *ngFor="let method of column.methods; let last = last;">
+          <div class="p-5"
+            [class.border-b-sky-300]="!last"
+            [class.border-b]="!last">
+            <table class="min-w-full bg-white">
+              <thead class="border-b">
+                <tr>
+                  <th scope="col" class="text-sm font-medium text-blue-500 px-6 py-4 text-left bg-gray-300">
+                    <strong>{{ method.name }}</strong>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap" [innerHTML]="method.description"></td>
+              </tbody>
+            </table>
+            <table *ngIf="method.parameters" class="min-w-full">
+              <thead class="border-b">
+                <tr>
+                  <th scope="col" colspan="2" class="text-sm font-medium text-gray-900 px-6 py-4 text-left bg-gray-200">
+                    Parameters
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let parameter of method.parameters" class="border-1 bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    {{ parameter.name }}
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap" [innerHTML]="parameter.description"></td>
+                </tr>
+              </tbody>
+            </table>
+            <table *ngIf="method.return" class="min-w-full">
+              <thead class="border-b">
+                <tr>
+                  <th scope="col" colspan="2" class="text-sm font-medium text-gray-900 px-6 py-4 text-left bg-gray-200">
+                    Returns
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-1 bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    {{ method.return.name }}
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap" [innerHTML]="method.return.description">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </ng-container>
+      </ng-container>
+  
+      <ng-container *ngIf="column.properties">
+        <strong>Properties</strong>
+        <ng-container *ngFor="let property of column.properties; let last = last;">
+          <div class="p-5"
+            [class.border-b-sky-300]="!last"
+            [class.border-b]="!last">
+            <table class="min-w-full bg-white">
+              <thead class="border-b">
+                <tr>
+                  <th scope="col" class="text-sm font-medium text-blue-500 px-6 py-4 text-left bg-gray-300">
+                    <strong>{{ property.name }}</strong>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap" [innerHTML]="property.description"></td>
+              </tbody>
+            </table>
+          </div>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+  
+</ng-container>
+

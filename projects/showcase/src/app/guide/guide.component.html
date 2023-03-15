@@ -11,7 +11,11 @@
             *ngFor="let anchor of anchors; let i = index; let first = first; let last = last;"
             (click)="base.scrollTop = anchor.offsetTop;"
             [class.active]="first && base.scrollTop <= anchor.offsetTop || (base.scrollTop >= anchor.offsetTop && (last || base.scrollTop < anchors[i + 1].offsetTop))">
-            <div><a>{{ anchor.name }}</a></div>
+            <div>
+              <a 
+                [class.pl-5]="anchor.isChildren"
+                [class.text-sm]="anchor.isChildren">{{ anchor.name }}</a>
+            </div>
           </li>
         </ul>
       </div>

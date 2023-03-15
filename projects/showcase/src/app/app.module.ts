@@ -28,7 +28,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient],
       },
-      defaultLanguage: 'zh-tw',
+      defaultLanguage: 'en-us',
     }),
     HighlightModule,
     AngularUIModule,

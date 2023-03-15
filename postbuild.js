@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { join } = require('path');
 const cssFile = join (__dirname, './dist/angular-ui/style.css');
-// css scope
+// css scope, prevent css conflict
 fs.readFile(cssFile, function(err, data) {
     if(err) throw err;
     data = data.toString();

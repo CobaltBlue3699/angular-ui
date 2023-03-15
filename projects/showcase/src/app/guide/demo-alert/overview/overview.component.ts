@@ -30,24 +30,23 @@ export class OverviewComponent {
 		styleUrls: ['./demo-alert.component.scss'],
 	})
 	export class DemoAlertComponent {
-		// import { AlertService } from @johnson.lee/angular-ui";
 		constructor(private alertService: AlertService) {}
 		successAlert() {
-			this.alertService.successAlert('success message');
+			this.alertService.success('success message');
 		}
 		errorAlert() {
-			this.alertService.errorAlert('error message');
+			this.alertService.error('error message');
 		}
 		warningAlert() {
-			this.alertService.warningAlert('warning message');
+			this.alertService.warning('warning message');
 		}
 		infoAlert() {
-			this.alertService.infoAlert('info message');
+			this.alertService.info('info message');
 		}
 	}
 	`;
 
-  alertUsage = `let alertRef = this.alertService.successAlert('message', {
+  alertUsage = `let alertRef = this.alertService.success('message', {
     dismissable: false,
     ...
   });
@@ -149,20 +148,20 @@ export class OverviewComponent {
 	})`;
 
   alertCloseUsage = `alertRef.afterClosed().subscribe(result => {
-    console.log(\`result: \${result.action}\`); // Pizza!
+    console.log(\`result: \${result}\`); // Pizza!
   });
 
-  alertRef.close({ action: 'Pizza!' });
+  alertRef.close('Pizza!'});
 	`;
 
   actionsTsCode = `
   this.alertService
-    .infoAlert('nonsense', {
+    .info('nonsense', {
       otherActions: ['cancel', 'recover']
     })
     .afterClosed()
     .subscribe((res) => {
-      this.alertService.infoAlert(\`event: \${res.action}\`)
+      this.alertService.info(\`event: \${res}\`)
     });
   `;
   showCode = false;
@@ -179,7 +178,7 @@ export class OverviewComponent {
 
   alertSuccess() {
     this.alertService
-      .successAlert('nonsense')
+      .success('nonsense')
       .afterClosed()
       .subscribe((res) => {
         console.log(res);
@@ -188,7 +187,7 @@ export class OverviewComponent {
 
   alertError() {
     this.alertService
-      .errorAlert('nonsense')
+      .error('nonsense')
       .afterClosed()
       .subscribe((res) => {
         console.log(res);
@@ -197,7 +196,7 @@ export class OverviewComponent {
 
   alertWarning() {
     this.alertService
-      .warningAlert('nonsense')
+      .warning('nonsense')
       .afterClosed()
       .subscribe((res) => {
         console.log(res);
@@ -206,7 +205,7 @@ export class OverviewComponent {
 
   alertInfo() {
     this.alertService
-      .infoAlert('nonsense')
+      .info('nonsense')
       .afterClosed()
       .subscribe((res) => {
         console.log(res);
@@ -215,10 +214,10 @@ export class OverviewComponent {
 
   alertInfoWithActions(...actions: string[]) {
     this.alertService
-      .infoAlert('當此訊息消失時，會再彈出此訊息為何關閉的事件。', { otherActions: actions })
+      .info('it will fire anthor alert that tells you why this alert closed.', { otherActions: actions })
       .afterClosed()
-      .subscribe((res) => {
-        this.alertService.infoAlert(`${res.action}`, { title: `Event` });
+      .subscribe((res: string) => {
+        this.alertService.info(`${res}`, { title: `Event` });
       });
   }
 }

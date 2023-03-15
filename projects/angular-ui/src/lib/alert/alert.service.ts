@@ -4,12 +4,6 @@ import { defaults } from 'lodash';
 import { ALERT_DEFAULT_OPTIONS } from './alert.constants';
 import { Nullable } from '../common';
 
-export type CloseMsg = {
-  // OVERTIME: 逾時
-  // MANUAL: 手動
-  action: 'OVERTIME' | 'MANUAL' | string;
-};
-
 export enum AlertType {
   INFO = 'info',
   ERROR = 'error',
@@ -18,19 +12,19 @@ export enum AlertType {
 }
 
 export class AlertRef {
-  private readonly close$: Subject<CloseMsg> = new Subject();
+  private readonly close$: Subject<string> = new Subject();
   private closeTimer: Nullable<Subscription> = null;
 
   constructor(public alert: Alert) {
     this.alert.ttl = this.alert.ttl ?? 3000;
     if (this.alert.ttl > 0) {
       this.closeTimer = timer(this.alert.ttl).subscribe(() => {
-        this.close({ action: `OVERTIME` });
+        this.close(`OVERTIME`);
       });
     }
   }
 
-  close(closeMsg: CloseMsg = { action: `MANUAL` }) {
+  close(closeMsg = `MANUAL`) {
     if (this.closeTimer) {
       this.closeTimer.unsubscribe();
     }
@@ -79,27 +73,19 @@ export class AlertService implements OnDestroy {
     this.destory$.complete();
   }
 
-  alert(message: string, options?: AlertOptions) {
-    return this._alert(
-      AlertType.SUCCESS,
-      message,
-      defaults(options, { title: 'info', type: 'info' }),
-    );
-  }
-
-  successAlert(message: string, options?: AlertOptions) {
+  success(message: string, options?: AlertOptions) {
     return this._alert(AlertType.SUCCESS, message, defaults(options, { title: 'success' }));
   }
 
-  errorAlert(message: string, options?: AlertOptions) {
+  error(message: string, options?: AlertOptions) {
     return this._alert(AlertType.ERROR, message, defaults(options, { title: 'error' }));
   }
 
-  warningAlert(message: string, options?: AlertOptions) {
+  warning(message: string, options?: AlertOptions) {
     return this._alert(AlertType.WARNING, message, defaults(options, { title: 'warning' }));
   }
 
-  infoAlert(message: string, options?: AlertOptions) {
+  info(message: string, options?: AlertOptions) {
     return this._alert(AlertType.INFO, message, defaults(options, { title: 'info' }));
   }
 

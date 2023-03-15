@@ -10,17 +10,21 @@ import { PanelComponent } from './panel/panel.component';
 import { HighlightModule } from 'ngx-highlightjs';
 import { SimpleCodeComponent } from './simple-code/simple-code.component';
 import { ExamplePanelComponent } from './example-panel/example-panel.component';
+import { DocsComponent } from './docs/docs.component';
+import { SubAnchorDirective } from '../directives/sub-anchor.directive';
 
 const delcareAndExport = [
   HintComponent,
   WarnComponent,
   AnchorDirective,
+  SubAnchorDirective,
   ScrollListenerDirective,
   TabsComponent,
   TabComponent,
   PanelComponent,
   SimpleCodeComponent,
   ExamplePanelComponent,
+  DocsComponent,
 ];
 
 @NgModule({
