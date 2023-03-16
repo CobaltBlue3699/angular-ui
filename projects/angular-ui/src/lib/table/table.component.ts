@@ -24,7 +24,7 @@ import { Component, Directive, TemplateRef } from '@angular/core';
 // }
 
 @Component({
-  selector: 'ac-table',
+  selector: 'au-table',
   template: ``,
   styles: [],
 })

@@ -148,7 +148,7 @@
       "projectType": "library",
       "root": "projects/angular-ui",
       "sourceRoot": "projects/angular-ui/src",
-      "prefix": "ac",
+      "prefix": "au",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

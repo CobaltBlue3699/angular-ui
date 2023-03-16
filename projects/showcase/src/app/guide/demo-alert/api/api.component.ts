@@ -1,5 +1,5 @@
 import { Column } from './../../components/docs/docs.component';
-import { Component } from '@angular/core';
+import { Component, Type } from '@angular/core';
 import { Docs } from '../../components/docs/docs.component';
 
 @Component({
@@ -117,18 +117,45 @@ export class ApiComponent {
             },
           ],
         },
+        // export class AlertOptions extends AlertGlobalOptions {
+        //   otherActions?: string[] = [];
+        //   title?: string = 'info';
+        //   type?: AlertType = AlertType.INFO;
+        // }
+        {
+          name: `AlertOptions`,
+          description: ``,
+          properties: [
+            {
+              name: `title?: string;`,
+              description: `title for alert.`,
+            },
+            {
+              name: `type: 'success' | 'info | 'warning' | 'error';`,
+              description: `
+              <p>Provide four different type of alert,</p>
+              <p>you can customize these four by giving templates to  if you want.</p>
+              <p>Please check out <a href="/angular-ui/#/guide/alert/overview">Overview</a> for the details.</p>
+              `,
+            },
+            {
+              name: `otherActions?: string[]`,
+              description: `If you want some events for user to interactive, this will do the trick.`,
+            }
+          ]
+        },
         {
           name: `AlertRef`,
           description: `Reference to an alert opened via the AlertService.`,
           // properties: [],
           methods: [
             {
-              name: `close`,
-              description: `close the opened alert instance.`,
+              name: `close: void;`,
+              description: `Close the opened alert instance.`,
               parameters: [
                 {
                   name: `closeMsg?: string`,
-                  description: `this given message will be emitted through the afterClosed stream.`,
+                  description: `This given message will be emitted through the afterClosed stream.`,
                 },
               ],
             },

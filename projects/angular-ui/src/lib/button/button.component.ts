@@ -4,7 +4,7 @@ import { Component, OnInit, Input, forwardRef, Output, EventEmitter } from '@ang
 import { Nullable } from '../common';
 
 @Component({
-  selector: 'ac-button',
+  selector: 'au-button',
   template: `
     <button
       type="button"

@@ -11,7 +11,7 @@ export class OverviewComponent {
   currentCode = ``;
   sampleHtmlCode = `
 	<!-- place this line of code on the root html -->
-	<ac-alert></ac-alert>;
+	<au-alert></au-alert>;
 
 	<!-- usage -->
 	<button (click)="alertSuccess()">success<button>
@@ -97,17 +97,17 @@ export class OverviewComponent {
   <ng-template #alertFullTemplate let-alertRefs="alertRefs" let-templates="templates">
     <div class="absolute bottom-20 left-5 z-50">
       <ng-container *ngFor="let alertRef of alertRefs">
-        <ac-alert-wrapper [alertRef]="alertRef" [templates]="templates"></ac-alert-wrapper>
+        <au-alert-wrapper [alertRef]="alertRef" [templates]="templates"></au-alert-wrapper>
       </ng-container>
     </div>
   </ng-template>
   `;
 
-  customizeTemplate = `<ac-alert>
+  customizeTemplate = `<au-alert>
     <ng-template #alertFullTemplate let-alertRefs="alertRefs" let-templates="templates">
       <div class="absolute bottom-20 left-5 z-50">
         <ng-container *ngFor="let alertRef of alertRefs">
-          <ac-alert-wrapper [alertRef]="alertRef" [templates]="templates"></ac-alert-wrapper>
+          <au-alert-wrapper [alertRef]="alertRef" [templates]="templates"></au-alert-wrapper>
         </ng-container>
       </div>
     </ng-template>
@@ -131,7 +131,7 @@ export class OverviewComponent {
         [{{ alertRef.alert.title | translate }}] {{ alertRef.alert.message | translate }}
       </div>
     </ng-template>
-  </ac-alert>
+  </au-alert>
   `;
 
   alertGlobalConfigSample = `
@@ -160,8 +160,8 @@ export class OverviewComponent {
       otherActions: ['cancel', 'recover']
     })
     .afterClosed()
-    .subscribe((res) => {
-      this.alertService.info(\`event: \${res}\`)
+    .subscribe((closeMsg: string) => {
+      his.alertService.info(closeMsg, { title: \`Event\` });
     });
   `;
   showCode = false;

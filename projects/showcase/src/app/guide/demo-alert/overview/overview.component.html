@@ -1,4 +1,5 @@
-<p class="mt-3">The alert service can be used to open alert dialogs with design styling.</p>
+<p appAnchor name="Basic usage" class="mt-3">The alert service can be used to open alert dialogs with design styling.</p>
+<p>Messages and titles will be translate by the <a href="https://github.com/ngx-translate/core">TranslateModule</a>.</p>
 <div class="border-b mt-2 border-b-gray-300 pt-5 pb-5">
   <app-example-panel>
     <ng-template #exampleBlock>
@@ -72,11 +73,11 @@
   </app-simple-code>
 </div>
 
-<div class="border-b border-b-gray-300 pt-5 pb-5">
-  <h3 class="mb-5" appAnchor name="customize template">{{ 'customize your alert' | titlecase }}</h3>
+<div appAnchor name="customize" class="border-b border-b-gray-300 pt-5 pb-5">
+  <h3 class="mb-5">{{ 'customize your alert' | titlecase }}</h3>
   <p>you can customize your alert by given your ng-template.</p>
 
-  <h4 class="mt-5 mb-3">successTemplate</h4>
+  <h4 appSubAnchor name="successTemplate" class="mt-5 mb-3">successTemplate</h4>
   <p>Use <code class="bg-gray-300">#successTemplate</code> for the content of the successAlert.</p>
   <p>You will have access to the following variables:</p>
   <p>alertRef: of type <code>AlertRef</code>. Exposes all Alert's properties and methods.</p>
@@ -92,7 +93,7 @@
     </app-tabs>
   </app-panel>
 
-  <h4 class="mt-5 mb-3">infoTemplate</h4>
+  <h4 appSubAnchor name="infoTemplate" class="mt-5 mb-3">infoTemplate</h4>
   <p>Use <code class="bg-gray-300">#infoTemplate</code> for the content of the infoAlert.</p>
   <p>You will have access to the following variables:</p>
   <p>alertRef: of type <code>AlertRef</code>. Exposes all Alert's properties and methods.</p>
@@ -108,7 +109,7 @@
     </app-tabs>
   </app-panel>
 
-  <h4 class="mt-5 mb-3">warningTemplate</h4>
+  <h4 appSubAnchor name="warningTemplate" class="mt-5 mb-3">warningTemplate</h4>
   <p>Use <code class="bg-gray-300">#warningTemplate</code> for the content of the warningAlert.</p>
   <p>You will have access to the following variables:</p>
   <p>alertRef: of type <code>AlertRef</code>. Exposes all Alert's properties and methods.</p>
@@ -124,7 +125,7 @@
     </app-tabs>
   </app-panel>
 
-  <h4 class="mt-5 mb-3">errorTemplate</h4>
+  <h4 appSubAnchor name="errorTemplate" class="mt-5 mb-3">errorTemplate</h4>
   <p>Use <code class="bg-gray-300">#errorTemplate</code> for the content of the errorAlert.</p>
   <p>You will have access to the following variables:</p>
   <p>alertRef: of type <code>AlertRef</code>. Exposes all Alert's properties and methods.</p>
@@ -139,10 +140,8 @@
       </app-tab>
     </app-tabs>
   </app-panel>
-</div>
 
-<div class="border-b border-b-gray-300 pt-5 pb-5">
-  <h4 class="mt-5 mb-3">alertFullTemplate</h4>
+  <h4 appSubAnchor name="fullTemplate" class="mt-5 mb-3">alertFullTemplate</h4>
   <p>This is useful in case all you need to further customise the alert's location.</p>
   <p class="mt-2">Start by specifying the following template, and make sure the alerts still renders as expected.
     Then remove / change whatever you need:</p>
@@ -159,7 +158,8 @@
   </app-panel>
 </div>
 
-<div class="border-b border-b-gray-300 pt-5 pb-5">
+<div appAnchor name="full example" class="border-b border-b-gray-300 pt-5 pb-5">
+  <p>This is the full example if you want to styling the alert all by your design.</p>
   <app-panel name="Simple Full Example">
     <app-tabs>
       <button tabs-button [appTooltip]="copyToolTipText" appTooltipPosition="right"

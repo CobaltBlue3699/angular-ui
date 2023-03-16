@@ -3,7 +3,7 @@ import { Component, OnInit, OnDestroy, ContentChild, TemplateRef } from '@angula
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
-  selector: 'ac-alert',
+  selector: 'au-alert',
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.scss'],
 })

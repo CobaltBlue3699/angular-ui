@@ -1,7 +1,7 @@
 import { AnchorService } from './../services/anchor.service';
 import { Directive, ElementRef, OnDestroy, AfterViewInit, Input } from '@angular/core';
 import { Anchor } from '../services/anchor.service';
-import { merge, Observable, takeUntil, Subject, timer, fromEvent } from 'rxjs';
+import { merge, Observable, takeUntil, Subject, timer, fromEvent, debounceTime } from 'rxjs';
 
 @Directive({
   selector: '[appAnchor]',
@@ -29,7 +29,7 @@ export class AnchorDirective implements AfterViewInit, OnDestroy {
         }
       });
       merge([resize$, ...imgs$])
-        .pipe(takeUntil(this.destory$))
+        .pipe(takeUntil(this.destory$), debounceTime(50))
         .subscribe(() => {
           // update anchor's location when img is loaded
           this.anchor.offsetTop = this.elementRef.nativeElement.offsetTop;

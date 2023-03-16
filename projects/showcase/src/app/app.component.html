@@ -1,10 +1,10 @@
-<ac-alert>
+<au-alert>
   <!-- sample of customize templates -->
   
   <!-- <ng-template #alertFullTemplate let-alertRefs="alertRefs" let-templates="templates">
     <div class="absolute bottom-10 left-5 z-50">
       <ng-container *ngFor="let alertRef of alertRefs">
-        <ac-alert-wrapper [alertRef]="alertRef" [templates]="templates"></ac-alert-wrapper>
+        <au-alert-wrapper [alertRef]="alertRef" [templates]="templates"></au-alert-wrapper>
       </ng-container>
     </div>
   </ng-template>
@@ -20,7 +20,7 @@
   <ng-template #errorTemplate let-alertRef="alertRef">
     <div class="bg-red-300 m-5 p-5 w-full rounded">[{{ alertRef.alert.title | translate }}] {{ alertRef.alert.message | translate }}</div>
   </ng-template> -->
-</ac-alert>
+</au-alert>
 
 <app-header *ngIf="showHeader"></app-header>
 

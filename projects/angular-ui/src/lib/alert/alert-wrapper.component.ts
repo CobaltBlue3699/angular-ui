@@ -3,7 +3,7 @@ import { Component, TemplateRef, Input } from '@angular/core';
 import { Nullable } from '../common';
 
 @Component({
-  selector: 'ac-alert-wrapper',
+  selector: 'au-alert-wrapper',
   templateUrl: `./alert-wrapper.component.html`,
 })
 export class AlertWrapperComponent {
