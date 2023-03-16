@@ -1,24 +1,13 @@
-# Angular UI Library
+## Components for Angular
+Common UI components and tools to help you build your own custom components.
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
+| Package                   | Description                                                                         | Docs             |
+| ------------------------- | ----------------------------------------------------------------------------------- | ---------------- |
+| `lodash `                 | A modern JavaScript utility library delivering modularity, performance & extras.    | [Docs][lod-docs] |
+| `ngx-translate/core`      | The internationalization (i18n) library for Angular.                                | [Docs][18n-docs] |
 
-## Code scaffolding
+## Getting Start
+See our <a href="https://cobaltblue3699.github.io/angular-ui/">Getting Started Guide</a> if you're building your first project with this library.
 
-Run `ng generate component component-name --project angular-ui` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project angular-ui`.
-> Note: Don't forget to add `--project angular-ui` or else it will be added to the default project in your `angular.json` file. 
-
-## Build
-
-Run `ng build angular-ui` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Publishing
-
-After building your library with `ng build angular-ui`, go to the dist folder `cd dist/angular-ui` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test angular-ui` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+[lod-docs]: https://lodash.com/
+[18n-docs]: https://github.com/ngx-translate/core
