@@ -188,12 +188,12 @@ export class ExampleComponent {
   ttlTsCode = `
   this.alertService.info('This closes in five seconds', { ttl: 5000 });
   this.alertService.info('Nerver close', { ttl: -1 });
-  `
+  `;
   alertDissmissableTsCode = `
   this.alertService.info('can't be dismiss', {
     dismissable: false
   })
-  `
+  `;
   alertWithTitleTsCode = `
   this.alertService.info('hey', {
     title: 'Your title'
@@ -213,8 +213,8 @@ export class ExampleComponent {
 
   alertWithoutDissmiss(msg: string) {
     this.alertService.info(msg, {
-      dismissable: false
-    })
+      dismissable: false,
+    });
   }
 
   alertTTL(msg: string, ttl: number) {
