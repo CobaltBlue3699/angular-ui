@@ -141,8 +141,8 @@ export class ApiComponent {
             {
               name: `otherActions?: string[]`,
               description: `If you want some events for user to interactive, this will do the trick.`,
-            }
-          ]
+            },
+          ],
         },
         {
           name: `AlertRef`,
