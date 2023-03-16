@@ -1,4 +1,4 @@
-<app-panel #customEventPanel name="custom event overview">
+<app-panel #customEventPanel [name]="name">
   <button [appTooltip]="showCode ? 'Hide code' : 'View code'" appTooltipPosition="right"
     class="header-button px-4 text-gray-200 flex text-xs" (click)="showCode = !showCode;">
     <i class="fa-solid fa-code leading-6"></i>

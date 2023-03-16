@@ -1,7 +1,7 @@
-<p appAnchor name="Basic usage" class="mt-3">The alert service can be used to open alert dialogs with design styling.</p>
+<p appAnchor name="" class="mt-3">The alert service can be used to open alert dialogs with design styling.</p>
 <p>Messages and titles will be translate by the <a href="https://github.com/ngx-translate/core">TranslateModule</a>.</p>
 <div class="border-b mt-2 border-b-gray-300 pt-5 pb-5">
-  <app-example-panel>
+  <app-example-panel name="Basic usage">
     <ng-template #exampleBlock>
       <button class="rounded-md border border-b-green-300 px-3 py-2 mx-3 duration-300 active:border-green-600"
         (click)="alertSuccess()">success</button>
@@ -29,10 +29,77 @@
   </app-example-panel>
 </div>
 
+<div appAnchor name="Alert lifetime" class="border-b border-b-gray-300 pt-5 pb-5">
+  <p>You could controll alert instance's lifetime, by passing <code>ttl</code> parameter to alert function.</p>
+  <p>By designed if your ttl is setting to <code>-1</code>, it'll nerver closed.</p>
+  <app-example-panel name="How to controll alert's lifetime">
+    <ng-template #exampleBlock>
+      <button class="rounded-md border border-b-sky-300 px-3 py-2 mx-3 duration-300 active:border-sky-600"
+        (click)="alertTTL('This closes in five seconds', 5000)">This closes in five seconds</button>
+        <button class="rounded-md border border-b-sky-300 px-3 py-2 mx-3 duration-300 active:border-sky-600"
+        (click)="alertTTL('Nerver close', -1)">This will nerver close.</button>
+    </ng-template>
+    <ng-template #codeBlock>
+      <app-tabs>
+        <button tabs-button [appTooltip]="copyToolTipText" appTooltipPosition="right"
+          class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(ttlTsCode);">
+          <i class="fa-regular fa-copy"></i>
+        </button>
+        <app-tab [name]="'ts'">
+          <code [highlight]="ttlTsCode"></code>
+        </app-tab>
+      </app-tabs>
+    </ng-template>
+  </app-example-panel>
+</div>
+
+<div appAnchor name="Alert's title" class="border-b border-b-gray-300 pt-5 pb-5">
+  <p>You could set alert's title, by passing <code>title</code> parameter to alert function.</p>
+  <p>Your title and alert's message will auto translate by <a href="https://github.com/ngx-translate/core">ngx-translate</a>.</p>
+  <app-example-panel name="Titleize your alert">
+    <ng-template #exampleBlock>
+      <button class="rounded-md border border-b-sky-300 px-3 py-2 mx-3 duration-300 active:border-sky-600"
+        (click)="alertWithTitle('hey', 'Your title')">titleize your alert instance.</button>
+    </ng-template>
+    <ng-template #codeBlock>
+      <app-tabs>
+        <button tabs-button [appTooltip]="copyToolTipText" appTooltipPosition="right"
+          class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(alertWithTitleTsCode);">
+          <i class="fa-regular fa-copy"></i>
+        </button>
+        <app-tab [name]="'ts'">
+          <code [highlight]="alertWithTitleTsCode"></code>
+        </app-tab>
+      </app-tabs>
+    </ng-template>
+  </app-example-panel>
+</div>
+
+<div appAnchor name="Alert's dissmissable" class="border-b border-b-gray-300 pt-5 pb-5">
+  <p>If you don't want alert could be close manually, set the <code>dissmisable</code> parameter to false.</p>
+  <app-example-panel name="Alert's dissmissable">
+    <ng-template #exampleBlock>
+      <button class="rounded-md border border-b-sky-300 px-3 py-2 mx-3 duration-300 active:border-sky-600"
+        (click)="alertWithoutDissmiss('can\'t be dismiss')">can't be dismiss.</button>
+    </ng-template>
+    <ng-template #codeBlock>
+      <app-tabs>
+        <button tabs-button [appTooltip]="copyToolTipText" appTooltipPosition="right"
+          class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(alertDissmissableTsCode);">
+          <i class="fa-regular fa-copy"></i>
+        </button>
+        <app-tab [name]="'ts'">
+          <code [highlight]="alertDissmissableTsCode"></code>
+        </app-tab>
+      </app-tabs>
+    </ng-template>
+  </app-example-panel>
+</div>
+
 <div appAnchor name="Events to interact" class="border-b border-b-gray-300 pt-5 pb-5">
   <p>You could add events for user to interact, by given parameter <code>otherActions</code> to alert functions.</p>
   <p>Notifications will fire if the alert is closed.</p>
-  <app-example-panel>
+  <app-example-panel name="Events to interact">
     <ng-template #exampleBlock>
       <button class="rounded-md border border-b-sky-300 px-3 py-2 mx-3 duration-300 active:border-sky-600"
         (click)="alertInfoWithActions('cancel', 'recover')">open an alert with a cancel and a recover button</button>
@@ -52,7 +119,7 @@
 </div>
 
 <div class="border-b border-b-gray-300 pt-5 pb-5">
-  <h3 class="mt-3 mb-5" appAnchor name="global config">Specifying global configuration defaults</h3>
+  <h3 class="mt-3 mb-5" appAnchor name="Global config">Specifying global configuration defaults</h3>
   <p>Default alert options can be specified by providing an instance of <code>AlertOption</code> for
     <code>ALERT_DEFAULT_OPTIONS</code> in your application's root module.</p>
   <app-simple-code
@@ -61,7 +128,7 @@
   </app-simple-code>
 </div>
 
-<div appAnchor name="customize" class="border-b border-b-gray-300 pt-5 pb-5">
+<div appAnchor name="Customize" class="border-b border-b-gray-300 pt-5 pb-5">
   <h3 class="mb-5">{{ 'customize your alert' | titlecase }}</h3>
   <p>you can customize your alert by given your ng-template.</p>
 
@@ -144,11 +211,10 @@
       </app-tab>
     </app-tabs>
   </app-panel>
-</div>
 
-<div appAnchor name="full example" class="border-b border-b-gray-300 pt-5 pb-5">
+  <h4 appSubAnchor name="Full Example" class="mt-5 mb-3">Full Example</h4>
   <p>This is the full example if you want to styling the alert all by your design.</p>
-  <app-panel name="Simple Full Example">
+  <app-panel name="Full Example">
     <app-tabs>
       <button tabs-button [appTooltip]="copyToolTipText" appTooltipPosition="right"
         class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(customizeTemplate);">

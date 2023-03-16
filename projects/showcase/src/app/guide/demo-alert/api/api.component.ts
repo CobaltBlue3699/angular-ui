@@ -117,11 +117,6 @@ export class ApiComponent {
             },
           ],
         },
-        // export class AlertOptions extends AlertGlobalOptions {
-        //   otherActions?: string[] = [];
-        //   title?: string = 'info';
-        //   type?: AlertType = AlertType.INFO;
-        // }
         {
           name: `AlertOptions`,
           description: ``,

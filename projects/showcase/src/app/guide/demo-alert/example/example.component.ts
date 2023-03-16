@@ -184,6 +184,22 @@ export class ExampleComponent {
       his.alertService.info(closeMsg, { title: \`Event\` });
     });
   `;
+
+  ttlTsCode = `
+  this.alertService.info('This closes in five seconds', { ttl: 5000 });
+  this.alertService.info('Nerver close', { ttl: -1 });
+  `
+  alertDissmissableTsCode = `
+  this.alertService.info('can't be dismiss', {
+    dismissable: false
+  })
+  `
+  alertWithTitleTsCode = `
+  this.alertService.info('hey', {
+    title: 'Your title'
+  });
+  `;
+
   showCode = false;
   constructor(private alertService: AlertService) {}
 
@@ -193,6 +209,20 @@ export class ExampleComponent {
       this.copyToolTipText = 'Copy';
     }, 2000);
     navigator.clipboard.writeText(text || '');
+  }
+
+  alertWithoutDissmiss(msg: string) {
+    this.alertService.info(msg, {
+      dismissable: false
+    })
+  }
+
+  alertTTL(msg: string, ttl: number) {
+    this.alertService.info(msg, { ttl });
+  }
+
+  alertWithTitle(msg: string, title: string) {
+    this.alertService.info(msg, { title });
   }
 
   alertSuccess() {
