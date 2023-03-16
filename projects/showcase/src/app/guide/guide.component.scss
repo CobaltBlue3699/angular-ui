@@ -3,7 +3,7 @@ ul.anchor-list {
     position: relative;
     font-size: 1rem;
     color: cornflowerblue;
-    padding: .5rem;
+    padding: .3rem .5rem;
     border-left: 1px solid #dbdbdb;
 
     &:hover {
@@ -18,8 +18,8 @@ ul.anchor-list {
       display: block;
       content: "．";
       position: absolute;
-      top: .5rem;
-      left: -.5rem;
+      top: .3rem;
+      left: -.6rem;
     }
 
     &:hover::before {
