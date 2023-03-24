@@ -54,7 +54,7 @@ export class ExampleComponent {
     bg-color="skyblue">
     it has a skyblue tooltip
   </button>
-  `
+  `;
 
   tooltipColor = `
   <button auTooltip="Tooltip"
@@ -63,14 +63,14 @@ export class ExampleComponent {
     color="green">
     it has a tooltip with green text
   </button>
-  `
+  `;
   activeOnLoaded = `
   <button auTooltip="activeOnLoaded"
     position="top"
     [activeOnLoaded]="true">
     it'll active when the element is loaded
   </button>
-  `
+  `;
 
   copyToClipboard(text: string): void {
     this.copyToolTipText = 'Coppied !!';

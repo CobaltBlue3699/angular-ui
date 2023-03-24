@@ -40,8 +40,8 @@ export class ApiComponent {
               description: `
               <p>decide the tooltip is triggered or not when the element is loaded.</p>
               <p>default as false.</p>
-              `
-            }
+              `,
+            },
           ],
         },
       ],

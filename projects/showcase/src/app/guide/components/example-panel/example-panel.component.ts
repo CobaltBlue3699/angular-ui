@@ -13,11 +13,10 @@ export class ExamplePanelComponent implements OnInit {
 
   isFirstExample: boolean = false;
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef) {}
 
   ngOnInit() {
     const examples = document.body.querySelectorAll('app-example-panel');
-    this.isFirstExample = (examples[0] === this.el.nativeElement);
+    this.isFirstExample = examples[0] === this.el.nativeElement;
   }
-
 }

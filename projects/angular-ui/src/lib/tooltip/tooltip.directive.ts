@@ -23,7 +23,7 @@ import { defaults } from 'lodash';
 export class TooltipDirective implements OnInit, OnChanges, OnDestroy {
   tooltip!: HTMLElement;
   @Input(`auTooltip`) text: string = '';
-  @Input() activeOnLoaded:boolean = false;
+  @Input() activeOnLoaded: boolean = false;
 
   private options: TooltipGlobalOptions = {};
   // options
