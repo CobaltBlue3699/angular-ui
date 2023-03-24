@@ -15,10 +15,10 @@
     <ng-template #codeBlock>
       <app-tabs>
         <button tabs-button [auTooltip]="copyToolTipText" position="right"
-          class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(currentCode);">
+          class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(tooltipHtmlCode);">
           <i class="fa-regular fa-copy"></i>
         </button>
-        <app-tab (active)="currentCode = tooltipHtmlCode;" [name]="'html'">
+        <app-tab [name]="'html'">
           <code [highlight]="tooltipHtmlCode"></code>
         </app-tab>
       </app-tabs>
@@ -36,10 +36,10 @@
     <ng-template #codeBlock>
       <app-tabs>
         <button tabs-button [auTooltip]="copyToolTipText" position="right"
-          class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(currentCode);">
+          class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(activeOnLoaded);">
           <i class="fa-regular fa-copy"></i>
         </button>
-        <app-tab (active)="currentCode = activeOnLoaded;" [name]="'html'">
+        <app-tab [name]="'html'">
           <code [highlight]="activeOnLoaded"></code>
         </app-tab>
       </app-tabs>
@@ -61,10 +61,10 @@
     <ng-template #codeBlock>
       <app-tabs>
         <button tabs-button [auTooltip]="copyToolTipText" position="right"
-          class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(currentCode);">
+          class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(tooltipBackgroundColor);">
           <i class="fa-regular fa-copy"></i>
         </button>
-        <app-tab (active)="currentCode = tooltipBackgroundColor;" [name]="'html'">
+        <app-tab [name]="'html'">
           <code [highlight]="tooltipBackgroundColor"></code>
         </app-tab>
       </app-tabs>
@@ -81,11 +81,41 @@
     <ng-template #codeBlock>
       <app-tabs>
         <button tabs-button [auTooltip]="copyToolTipText" position="right"
-          class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(currentCode);">
+          class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(tooltipColor);">
           <i class="fa-regular fa-copy"></i>
         </button>
-        <app-tab (active)="currentCode = tooltipColor;" [name]="'html'">
+        <app-tab [name]="'html'">
           <code [highlight]="tooltipColor"></code>
+        </app-tab>
+      </app-tabs>
+    </ng-template>
+  </app-example-panel>
+</div>
+
+<div appAnchor name="template tooltip" class="border-b border-b-gray-300 pt-5 pb-5">
+  <h3 class="mb-5">{{ 'template tooltip' | titlecase }}</h3>
+  <p>sometimes you wnat to display more than just a text.</p>
+  <p>you could give template to the tooltip directive will easily do the trick.</p>
+  <app-example-panel name="background color">
+    <ng-template #exampleBlock>
+      <button class="rounded-md border border-b-sky-300 px-3 py-2 mx-3 duration-300 active:border-sky-600"
+        [auTooltip]="sampleTooltip" bg-color="white" color="red">it has an image and some message.
+      </button>
+      <ng-template #sampleTooltip>
+        <div class="min-w-[100px] text-center">
+          <img class="m-auto" width="100" src="https://cdn-icons-png.flaticon.com/512/1088/1088537.png">
+          <p>{{ 'nonsense' | translate }}</p>
+        </div>
+      </ng-template>
+    </ng-template>
+    <ng-template #codeBlock>
+      <app-tabs>
+        <button tabs-button [auTooltip]="copyToolTipText" position="right"
+          class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(tooltipWithTemplate);">
+          <i class="fa-regular fa-copy"></i>
+        </button>
+        <app-tab [name]="'html'">
+          <code [highlight]="tooltipWithTemplate"></code>
         </app-tab>
       </app-tabs>
     </ng-template>

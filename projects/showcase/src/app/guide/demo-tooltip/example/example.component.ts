@@ -9,13 +9,13 @@ export class ExampleComponent {
   copyToolTipText: string = 'Copy';
   currentCode!: string;
   tooltipHtmlCode = `
-  <button class="button success" 
-    auTooltip="This is a top side tooltip" 
+  <button class="button success"
+    auTooltip="This is a top side tooltip"
     position="top">
     top
   </button>
 
-  <button class="button info" 
+  <button class="button info"
     auTooltip="This is a right side tooltip"
     position="right">
     right
@@ -49,8 +49,8 @@ export class ExampleComponent {
 	})`;
 
   tooltipBackgroundColor = `
-  <button auTooltip="Tooltip" 
-    position="top" 
+  <button auTooltip="Tooltip"
+    position="top"
     bg-color="skyblue">
     it has a skyblue tooltip
   </button>
@@ -71,6 +71,16 @@ export class ExampleComponent {
     it'll active when the element is loaded
   </button>
   `;
+
+  tooltipWithTemplate = `
+  <button class="button" [auTooltip]="sampleTooltip" bg-color="white" color="red">it has an image and some message.</button>
+  <ng-template #sampleTooltip>
+    <div class="min-w-[100px] text-center">
+      <img class="m-auto" width="100" src="https://cdn-icons-png.flaticon.com/512/1088/1088537.png">
+      <p>{{ 'nonsense' | translate }}</p>
+    </div>
+  </ng-template>
+  `
 
   copyToClipboard(text: string): void {
     this.copyToolTipText = 'Coppied !!';

@@ -1,3 +1,4 @@
+import { TooltipComponent } from './tooltip.component';
 import { debounceTime } from 'rxjs/operators';
 import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 import {
@@ -12,19 +13,28 @@ import {
   OnDestroy,
   Inject,
   Optional,
+  TemplateRef,
+  AfterViewChecked,
+  AfterContentChecked,
+  Injector,
+  ComponentRef,
+  ViewContainerRef,
 } from '@angular/core';
 import { TooltipGlobalOptions, TooltipPosition } from '.';
 import { TOOLTIP_DEFAULT_OPTIONS } from './tooltip.constants';
 import { defaults } from 'lodash';
+import { Nullable } from '../common';
 
 @Directive({
   selector: '[auTooltip]',
 })
-export class TooltipDirective implements OnInit, OnChanges, OnDestroy {
+export class TooltipDirective implements OnInit, OnChanges, OnDestroy, AfterViewChecked, AfterContentChecked {
   tooltip!: HTMLElement;
-  @Input(`auTooltip`) text: string = '';
+  @Input() auTooltip: string | TemplateRef<any> = '';
   @Input() activeOnLoaded: boolean = false;
+  // @Input() context: any;
 
+  private componentInstance: Nullable<ComponentRef<TooltipComponent>> = null;
   private options: TooltipGlobalOptions = {};
   // options
   @Input(`bg-color`)
@@ -50,6 +60,8 @@ export class TooltipDirective implements OnInit, OnChanges, OnDestroy {
   constructor(
     private el: ElementRef,
     private renderer: Renderer2,
+    private injector: Injector,
+    private viewContainerRef: ViewContainerRef,
     @Inject(TOOLTIP_DEFAULT_OPTIONS)
     @Optional()
     moduleOptions: TooltipGlobalOptions,
@@ -61,13 +73,8 @@ export class TooltipDirective implements OnInit, OnChanges, OnDestroy {
     this.renderer.addClass(this.el.nativeElement, 'angular-ui');
     this.renderer.addClass(this.el.nativeElement, 'relative');
     this.tooltip = this.renderer.createElement('span');
-    this.renderer.addClass(this.tooltip, 'tooltip');
-
-    this.renderer.appendChild(this.tooltip, this.renderer.createText(this.text));
     this.renderer.appendChild(this.el.nativeElement, this.tooltip);
-    this.setPosition();
-    this.tooltip.style.setProperty(`--bg-color`, this.options.backgroundColor as string);
-    this.tooltip.style.setProperty(`--color`, this.options.textColor as string);
+    this.renderer.addClass(this.tooltip, 'tooltip');
 
     if (this.activeOnLoaded) {
       this.renderer.addClass(this.tooltip, 'tooltip-active');
@@ -82,16 +89,12 @@ export class TooltipDirective implements OnInit, OnChanges, OnDestroy {
     });
 
     this.changes$.pipe(takeUntil(this.destory$)).subscribe((changes: SimpleChanges) => {
-      if (changes['text']) {
-        const tpmChanges = changes['text'];
+      if (changes['auTooltip']) {
+        const tpmChanges = changes['auTooltip'];
         if (!tpmChanges.isFirstChange()) {
           this.renderer.removeChild(this.tooltip, this.tooltip.childNodes[0]);
-          this.renderer.appendChild(
-            this.tooltip,
-            this.renderer.createText(tpmChanges.currentValue),
-          );
+          this.render();
         }
-        this.setPosition();
       }
       if (changes['position']) {
         this.setPosition();
@@ -103,6 +106,8 @@ export class TooltipDirective implements OnInit, OnChanges, OnDestroy {
         this.tooltip.style.setProperty(`--color`, this.options.textColor as string);
       }
     });
+
+    this.render();
   }
 
   @HostListener('mouseenter') onMouseEnter() {
@@ -138,8 +143,8 @@ export class TooltipDirective implements OnInit, OnChanges, OnDestroy {
       this.renderer.addClass(this.tooltip, this.options.position as string);
 
       const host = this.el.nativeElement;
-      let top = 0,
-        left = 0;
+      let top = 0;
+      let left = 0;
       switch (this.options.position) {
         case 'top':
           top = -this.tooltip.offsetHeight - this.prefixPadding;
@@ -162,5 +167,27 @@ export class TooltipDirective implements OnInit, OnChanges, OnDestroy {
       this.renderer.setStyle(this.tooltip, 'top', top + 'px');
       this.renderer.setStyle(this.tooltip, 'left', left + 'px');
     }
+  }
+
+  render () {
+    if (this.auTooltip instanceof TemplateRef) {
+      this.componentInstance = this.viewContainerRef.createComponent(TooltipComponent, { injector: this.injector });
+      // this.componentInstance.instance.context = this.context;
+      this.componentInstance.instance.templateRef = this.auTooltip;
+      this.renderer.appendChild(this.tooltip, this.componentInstance.location.nativeElement);
+    } else {
+      this.renderer.appendChild(this.tooltip, this.renderer.createText(this.auTooltip));
+    }
+    this.tooltip.style.setProperty(`--bg-color`, this.options.backgroundColor as string);
+    this.tooltip.style.setProperty(`--color`, this.options.textColor as string);
+  }
+
+  // compute tooltip's position again, when the view is changing.
+  ngAfterContentChecked(): void {
+    this.setPosition();
+  }
+
+  ngAfterViewChecked(): void {
+    this.setPosition();
   }
 }

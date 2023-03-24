@@ -4,7 +4,7 @@
   --bg-color: #333; /* Define a custom property for the background color */
   --color: #fff;
   position: absolute;
-  z-index: 9999;
+  z-index: 999999999999999999999999;
   padding: 0.5rem;
   background-color: var(--bg-color);
   color: var(--color);
@@ -14,10 +14,10 @@
   opacity: 0;
   pointer-events: none;
   user-select: none;
-  display: inline-block;
+  display: flex;
   width: max-content;
   min-width: 3em;
-  max-width: 21em;
+  /* max-width: 21em; */
 }
 
 .tooltip::before {
