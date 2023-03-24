@@ -28,7 +28,9 @@ import { Nullable } from '../common';
 @Directive({
   selector: '[auTooltip]',
 })
-export class TooltipDirective implements OnInit, OnChanges, OnDestroy, AfterViewChecked, AfterContentChecked {
+export class TooltipDirective
+  implements OnInit, OnChanges, OnDestroy, AfterViewChecked, AfterContentChecked
+{
   tooltip!: HTMLElement;
   @Input() auTooltip: string | TemplateRef<any> = '';
   @Input() activeOnLoaded: boolean = false;
@@ -169,9 +171,11 @@ export class TooltipDirective implements OnInit, OnChanges, OnDestroy, AfterView
     }
   }
 
-  render () {
+  render() {
     if (this.auTooltip instanceof TemplateRef) {
-      this.componentInstance = this.viewContainerRef.createComponent(TooltipComponent, { injector: this.injector });
+      this.componentInstance = this.viewContainerRef.createComponent(TooltipComponent, {
+        injector: this.injector,
+      });
       // this.componentInstance.instance.context = this.context;
       this.componentInstance.instance.templateRef = this.auTooltip;
       this.renderer.appendChild(this.tooltip, this.componentInstance.location.nativeElement);

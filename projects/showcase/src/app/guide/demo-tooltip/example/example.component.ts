@@ -80,7 +80,7 @@ export class ExampleComponent {
       <p>{{ 'nonsense' | translate }}</p>
     </div>
   </ng-template>
-  `
+  `;
 
   copyToClipboard(text: string): void {
     this.copyToolTipText = 'Coppied !!';
