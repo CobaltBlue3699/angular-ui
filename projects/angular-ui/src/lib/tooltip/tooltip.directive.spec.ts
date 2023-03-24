@@ -7,14 +7,13 @@ import { TooltipDirective } from './tooltip.directive';
 
 @Component({
   template: `
-  <h2 auTooltip="top" position="top" color="red">Something good</h2>
-  <h2 auTooltip="bottom" position="bottom">Something good</h2>
-  <h2 auTooltip="right" position="right" [activeOnLoaded]="true">Something good</h2>
-  <h2 auTooltip="left" position="left">Something good</h2>
-  `
+    <h2 auTooltip="top" position="top" color="red">Something good</h2>
+    <h2 auTooltip="bottom" position="bottom">Something good</h2>
+    <h2 auTooltip="right" position="right" [activeOnLoaded]="true">Something good</h2>
+    <h2 auTooltip="left" position="left">Something good</h2>
+  `,
 })
-class TestComponent { }
-
+class TestComponent {}
 
 describe('TooltipDirective', () => {
   let component: TestComponent;
@@ -25,22 +24,19 @@ describe('TooltipDirective', () => {
 
   beforeEach(async () => {
     fixture = await TestBed.configureTestingModule({
-      imports: [
-        TooltipModule
-      ],
-      declarations: [ TestComponent, TooltipDirective ],
+      imports: [TooltipModule],
+      declarations: [TestComponent, TooltipDirective],
       providers: [
         {
           provide: TOOLTIP_DEFAULT_OPTIONS,
           useValue: {
             textColor: defaultFontColor,
-            backgroundColor: defaultBackgroundColor
-          }
-        }
+            backgroundColor: defaultBackgroundColor,
+          },
+        },
       ],
       teardown: { destroyAfterEach: false }, // <-- disabling destroyAfterEach make test pass successfully
-    })
-    .createComponent(TestComponent);
+    }).createComponent(TestComponent);
     component = fixture.componentInstance;
     fixture.detectChanges(); // initial binding
 
@@ -57,23 +53,26 @@ describe('TooltipDirective', () => {
   });
 
   it('should color 1st <h2> "#ccc"', () => {
-    const color = des[1].nativeElement.querySelector(`.tooltip`).style.getPropertyValue('--color')
+    const color = des[1].nativeElement.querySelector(`.tooltip`).style.getPropertyValue('--color');
     expect(color).toBe(defaultFontColor);
   });
 
   it('should background 1st <h2> "#fff"', () => {
-    const color = des[0].nativeElement.querySelector(`.tooltip`).style.getPropertyValue('--bg-color')
+    const color = des[0].nativeElement
+      .querySelector(`.tooltip`)
+      .style.getPropertyValue('--bg-color');
     expect(color).toBe(defaultBackgroundColor);
   });
 
   it('should color 2nd <h2> "red"', () => {
-    const color = des[0].nativeElement.querySelector(`.tooltip`).style.getPropertyValue('--color')
+    const color = des[0].nativeElement.querySelector(`.tooltip`).style.getPropertyValue('--color');
     expect(color).toBe('red');
   });
 
   it('should 3rd <h2> is active from the beginning', () => {
-    const active = des[2].nativeElement.querySelector(`.tooltip`).classList.contains('tooltip-active')
+    const active = des[2].nativeElement
+      .querySelector(`.tooltip`)
+      .classList.contains('tooltip-active');
     expect(active).toBe(true);
   });
 });
-
