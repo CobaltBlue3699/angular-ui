@@ -5,9 +5,7 @@ import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, TooltipModule],
-  exports: [CommonModule, HttpClientModule , TooltipModule],
-  providers: [
-    TooltipDirective
-  ],
+  exports: [CommonModule, HttpClientModule, TooltipModule],
+  providers: [TooltipDirective],
 })
 export class SharedModule {}

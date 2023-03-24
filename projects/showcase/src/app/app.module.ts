@@ -36,7 +36,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       defaultLanguage: 'en-us',
     }),
     HighlightModule,
-    AngularUIModule
+    AngularUIModule,
   ],
   providers: [
     {
