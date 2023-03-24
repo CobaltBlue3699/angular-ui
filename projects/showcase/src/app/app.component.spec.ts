@@ -9,6 +9,7 @@ describe('AppComponent', () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule, AngularUIModule, TranslateModule.forRoot()],
       declarations: [AppComponent],
+      teardown: { destroyAfterEach: false }, // <-- disabling destroyAfterEach make test pass successfully
     }).compileComponents();
   });
 

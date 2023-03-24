@@ -12,6 +12,7 @@ describe('DemoAlertComponent', () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule, DemoAlertModule],
       declarations: [DemoAlertComponent],
+      teardown: { destroyAfterEach: false }, // <-- disabling destroyAfterEach make test pass successfully
     }).compileComponents();
 
     fixture = TestBed.createComponent(DemoAlertComponent);

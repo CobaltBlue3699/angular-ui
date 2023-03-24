@@ -9,10 +9,9 @@ describe('AlertComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AlertComponent],
+      teardown: { destroyAfterEach: false }, // <-- disabling destroyAfterEach make test pass successfully
     }).compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(AlertComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
