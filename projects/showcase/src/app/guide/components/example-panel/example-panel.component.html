@@ -1,5 +1,5 @@
 <app-panel #customEventPanel [name]="name">
-  <button [appTooltip]="showCode ? 'Hide code' : 'View code'" appTooltipPosition="right"
+  <button [auTooltip]="showCode ? 'Hide code' : 'View code'" position="top" [activeOnLoaded]="isFirstExample"
     class="header-button px-4 text-gray-200 flex text-xs" (click)="showCode = !showCode;">
     <i class="fa-solid fa-code leading-6"></i>
   </button>

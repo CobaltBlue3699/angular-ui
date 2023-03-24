@@ -6,8 +6,8 @@ import { Component, Input } from '@angular/core';
     <app-panel [name]="name">
       <button
         tabs-button
-        [appTooltip]="copyToolTipText"
-        appTooltipPosition="right"
+        [auTooltip]="copyToolTipText"
+        position="top"
         class="header-button px-4 cursor-pointer text-xs pt-1"
         (click)="copyToClipboard(code)"
       >

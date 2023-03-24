@@ -26,6 +26,16 @@ export const routes: Routes = [
           iconHtml: `<i class="fa-solid fa-message"></i>`,
         },
       },
+      {
+        path: 'tooltip',
+        loadChildren: () =>
+          import('./demo-tooltip/demo-tooltip.module').then((mod) => mod.DemoTooltipModule),
+        data: {
+          isMenu: true,
+          keywords: ['tooltip', 'info'],
+          iconHtml: `<i class="fa-solid fa-question"></i>`,
+        },
+      },
     ],
   },
   { path: '**', redirectTo: '' },

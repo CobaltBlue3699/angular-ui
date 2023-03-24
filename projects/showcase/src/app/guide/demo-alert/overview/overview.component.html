@@ -14,7 +14,7 @@
     </ng-template>
     <ng-template #codeBlock>
       <app-tabs>
-        <button tabs-button [appTooltip]="copyToolTipText" appTooltipPosition="right"
+        <button tabs-button [auTooltip]="copyToolTipText" position="right"
           class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(currentCode);">
           <i class="fa-regular fa-copy"></i>
         </button>
@@ -51,7 +51,7 @@
     </ng-template>
     <ng-template #codeBlock>
       <app-tabs>
-        <button tabs-button [appTooltip]="copyToolTipText" appTooltipPosition="right"
+        <button tabs-button [auTooltip]="copyToolTipText" position="right"
           class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(actionsTsCode);">
           <i class="fa-regular fa-copy"></i>
         </button>
@@ -83,7 +83,7 @@
   <p>alertRef: of type <code>AlertRef</code>. Exposes all Alert's properties and methods.</p>
   <app-panel name="successTemplate">
     <app-tabs>
-      <button tabs-button [appTooltip]="copyToolTipText" appTooltipPosition="right"
+      <button tabs-button [auTooltip]="copyToolTipText" position="right"
         class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(successTemplate);">
         <i class="fa-regular fa-copy"></i>
       </button>
@@ -99,7 +99,7 @@
   <p>alertRef: of type <code>AlertRef</code>. Exposes all Alert's properties and methods.</p>
   <app-panel name="infoTemplate">
     <app-tabs>
-      <button tabs-button [appTooltip]="copyToolTipText" appTooltipPosition="right"
+      <button tabs-button [auTooltip]="copyToolTipText" position="right"
         class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(infoTemplate);">
         <i class="fa-regular fa-copy"></i>
       </button>
@@ -115,7 +115,7 @@
   <p>alertRef: of type <code>AlertRef</code>. Exposes all Alert's properties and methods.</p>
   <app-panel name="infoTemplate">
     <app-tabs>
-      <button tabs-button [appTooltip]="copyToolTipText" appTooltipPosition="right"
+      <button tabs-button [auTooltip]="copyToolTipText" position="right"
         class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(warningTemplate);">
         <i class="fa-regular fa-copy"></i>
       </button>
@@ -131,7 +131,7 @@
   <p>alertRef: of type <code>AlertRef</code>. Exposes all Alert's properties and methods.</p>
   <app-panel name="errorTemplate">
     <app-tabs>
-      <button tabs-button [appTooltip]="copyToolTipText" appTooltipPosition="right"
+      <button tabs-button [auTooltip]="copyToolTipText" position="right"
         class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(errorTemplate);">
         <i class="fa-regular fa-copy"></i>
       </button>
@@ -147,7 +147,7 @@
     Then remove / change whatever you need:</p>
   <app-panel name="alertFullTemplate">
     <app-tabs>
-      <button tabs-button [appTooltip]="copyToolTipText" appTooltipPosition="right"
+      <button tabs-button [auTooltip]="copyToolTipText" position="right"
         class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(alertFullTemplate);">
         <i class="fa-regular fa-copy"></i>
       </button>
@@ -161,7 +161,7 @@
   <p>This is the full example if you want to styling the alert all by your design.</p>
   <app-panel name="Full Example">
     <app-tabs>
-      <button tabs-button [appTooltip]="copyToolTipText" appTooltipPosition="right"
+      <button tabs-button [auTooltip]="copyToolTipText" position="right"
         class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(customizeTemplate);">
         <i class="fa-regular fa-copy"></i>
       </button>

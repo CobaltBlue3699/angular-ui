@@ -1,1 +1,113 @@
 @tailwind utilities;
+
+.tooltip {
+  --bg-color: #333; /* Define a custom property for the background color */
+  --color: #fff;
+  position: absolute;
+  z-index: 9999;
+  padding: 0.5rem;
+  background-color: var(--bg-color);
+  color: var(--color);
+  font-size: 0.8rem;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  display: inline-block;
+  width: max-content;
+  min-width: 3em;
+  max-width: 21em;
+}
+
+.tooltip::before {
+  user-select: none;
+  pointer-events: none;
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 8px 8px 0 0;
+  border-color: var(--bg-color) transparent transparent transparent;
+}
+
+.tooltip.left::before {
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%) rotate(135deg);
+}
+
+.tooltip.right::before {
+  top: 50%;
+  right: 100%;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.tooltip.top::before {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) rotate(-135deg);
+}
+
+.tooltip.bottom::before {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.tooltip.top.tooltip-active {
+  animation: tooltips-bottom-top 300ms ease-out forwards;
+}
+
+.tooltip.bottom.tooltip-active {
+  animation: tooltips-top-bottom 300ms ease-out forwards;
+}
+
+.tooltip.left.tooltip-active {
+  animation: tooltips-right-left 300ms ease-out forwards;
+}
+
+.tooltip.right.tooltip-active {
+  animation: tooltips-left-right 300ms ease-out forwards;
+}
+
+@keyframes tooltips-top-bottom {
+  from {
+    transform: translate(0, -50%);
+  }
+  to {
+    opacity: .9;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes tooltips-bottom-top {
+  from {
+    transform: translate(0, 50%);
+  }
+  to {
+    opacity: .9;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes tooltips-right-left {
+  from {
+    transform: translate(50%, 0);
+  }
+  to {
+    opacity: .9;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes tooltips-left-right {
+  from {
+    transform: translate(-50%, 0);
+  }
+  to {
+    opacity: .9;
+    transform: translate(0, 0);
+  }
+}

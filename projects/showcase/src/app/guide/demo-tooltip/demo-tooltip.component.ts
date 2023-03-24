@@ -1,12 +1,12 @@
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-demo-alert',
-  templateUrl: './demo-alert.component.html',
-  styleUrls: ['./demo-alert.component.scss'],
+  selector: 'app-demo-tooltip',
+  templateUrl: './demo-tooltip.component.html',
+  styleUrls: ['./demo-tooltip.component.scss'],
 })
-export class DemoAlertComponent {
+export class DemoTooltipComponent {
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   to(location: string) {

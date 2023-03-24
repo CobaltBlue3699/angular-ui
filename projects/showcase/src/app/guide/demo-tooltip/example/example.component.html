@@ -1,0 +1,104 @@
+<p appAnchor name="Basic usage" class="mt-3">Tooltip provides a text label that is displayed when the user hovers over or longpresses an element.</p>
+<p>You can decide tooltip's position by setting the position property of the <code>auTooltip</code></p>
+<div class="border-b mt-2 border-b-gray-300 pt-5 pb-5">
+  <app-example-panel name="Basic usage">
+    <ng-template #exampleBlock>
+      <button class="rounded-md border border-b-green-300 px-3 py-2 mx-3 duration-300 active:border-green-600"
+        auTooltip="This is a top side tooltip" position="top">top</button>
+      <button class="rounded-md border border-b-sky-300 px-3 py-2 mx-3 duration-300 active:border-sky-600"
+        auTooltip="This is a right side tooltip" position="right">right</button>
+      <button class="rounded-md border border-b-orange-300 px-3 py-2 mx-3 duration-300 active:border-orange-600"
+        auTooltip="This is a bottom side tooltip" position="bottom">bottom</button>
+      <button class="rounded-md border border-b-red-300 px-3 py-2 mx-3 duration-300 active:border-red-600"
+        auTooltip="This is a left side tooltip" position="left">left</button>
+    </ng-template>
+    <ng-template #codeBlock>
+      <app-tabs>
+        <button tabs-button [auTooltip]="copyToolTipText" position="right"
+          class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(currentCode);">
+          <i class="fa-regular fa-copy"></i>
+        </button>
+        <app-tab (active)="currentCode = tooltipHtmlCode;" [name]="'html'">
+          <code [highlight]="tooltipHtmlCode"></code>
+        </app-tab>
+      </app-tabs>
+    </ng-template>
+  </app-example-panel>
+
+  <p>if you want tooltip triggered when the element is loaded.</p>
+  <p>set the <code>activeOnLoaded</code> to true.</p>
+
+  <app-example-panel name="active on loaded">
+    <ng-template #exampleBlock>
+      <button class="rounded-md border border-b-green-300 px-3 py-2 mx-3 duration-300 active:border-green-600"
+        auTooltip="activeOnLoaded" position="top" [activeOnLoaded]="true">it'll active when the element is loaded</button>
+    </ng-template>
+    <ng-template #codeBlock>
+      <app-tabs>
+        <button tabs-button [auTooltip]="copyToolTipText" position="right"
+          class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(currentCode);">
+          <i class="fa-regular fa-copy"></i>
+        </button>
+        <app-tab (active)="currentCode = activeOnLoaded;" [name]="'html'">
+          <code [highlight]="activeOnLoaded"></code>
+        </app-tab>
+      </app-tabs>
+    </ng-template>
+  </app-example-panel>
+</div>
+
+<div appAnchor name="styling" class="border-b border-b-gray-300 pt-5 pb-5">
+  <h3 class="mb-5">{{ 'styling your tooltip' | titlecase }}</h3>
+  <p>you can styling your tooltip with these properties.</p>
+
+  <h4 appSubAnchor name="background color" class="mt-5 mb-3">background color</h4>
+  <p>Setting <code class="bg-gray-300">bgColor</code> for the background color of the tooltip.</p>
+  <app-example-panel name="background color">
+    <ng-template #exampleBlock>
+      <button class="rounded-md border border-b-sky-300 px-3 py-2 mx-3 duration-300 active:border-sky-600"
+        auTooltip="Tooltip" position="top" bg-color="skyblue">it has a tooltip with skyblue background</button>
+    </ng-template>
+    <ng-template #codeBlock>
+      <app-tabs>
+        <button tabs-button [auTooltip]="copyToolTipText" position="right"
+          class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(currentCode);">
+          <i class="fa-regular fa-copy"></i>
+        </button>
+        <app-tab (active)="currentCode = tooltipBackgroundColor;" [name]="'html'">
+          <code [highlight]="tooltipBackgroundColor"></code>
+        </app-tab>
+      </app-tabs>
+    </ng-template>
+  </app-example-panel>
+
+  <h4 appSubAnchor name="font color" class="mt-5 mb-3">font color</h4>
+  <p>Setting <code class="bg-gray-300">color</code> for the font color of the tooltip.</p>
+  <app-example-panel name="font color">
+    <ng-template #exampleBlock>
+      <button class="rounded-md border border-b-sky-300 px-3 py-2 mx-3 duration-300 active:border-sky-600"
+        auTooltip="Tooltip" position="top" bg-color="#fff" color="green">it has a tooltip with green text</button>
+    </ng-template>
+    <ng-template #codeBlock>
+      <app-tabs>
+        <button tabs-button [auTooltip]="copyToolTipText" position="right"
+          class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(currentCode);">
+          <i class="fa-regular fa-copy"></i>
+        </button>
+        <app-tab (active)="currentCode = tooltipColor;" [name]="'html'">
+          <code [highlight]="tooltipColor"></code>
+        </app-tab>
+      </app-tabs>
+    </ng-template>
+  </app-example-panel>
+</div>
+
+<div class="border-b border-b-gray-300 pt-5 pb-5">
+  <h3 class="mt-3 mb-5" appAnchor name="Global config">Specifying global configuration defaults</h3>
+  <p>Default tooltip options can be specified by providing an instance of <code>TooltipGlobalOptions</code> for
+    <code>TOOLTIP_DEFAULT_OPTIONS</code> in your feature module.</p>
+  <app-simple-code
+    name="feature.module.ts"
+    [code]="tooltipGlobalConfigSample">
+  </app-simple-code>
+</div>
+

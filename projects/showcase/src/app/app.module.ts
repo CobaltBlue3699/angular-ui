@@ -6,7 +6,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { ALERT_DEFAULT_OPTIONS, AngularUIModule, AlertGlobalOptions } from 'angular-ui';
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { SharedModule } from './shared/shared.module';
 
@@ -31,7 +30,6 @@ export function HttpLoaderFactory(http: HttpClient) {
       defaultLanguage: 'en-us',
     }),
     HighlightModule,
-    AngularUIModule,
   ],
   providers: [
     {
@@ -40,14 +38,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         fullLibraryLoader: () => import('highlight.js'),
         themePath: 'assets/styles/atom-one-dark.min.css',
       },
-    },
-    {
-      provide: ALERT_DEFAULT_OPTIONS,
-      useValue: {
-        ttl: 3000,
-        maxInstance: 3,
-        // dismissable: false
-      } as AlertGlobalOptions,
     },
   ],
 })
