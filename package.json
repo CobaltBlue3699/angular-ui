@@ -23,7 +23,7 @@
     "release:prepatch": "npm version prepatch && npm run publish",
     "release:patch": "npm version patch && npm run publish",
     "release:preminor": "npm version preminor && npm run publish",
-    "release:minor": "npm version monor && npm run publish",
+    "release:minor": "npm version minor && npm run publish",
     "release:premajor": "npm version premajor && npm run publish",
     "release:major": "npm version major && npm run publish"
   },
