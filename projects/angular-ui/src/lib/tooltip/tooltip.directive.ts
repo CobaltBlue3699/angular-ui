@@ -137,6 +137,11 @@ export class TooltipDirective
     this.destory$.complete();
     this.show$.complete();
     this.hide$.complete();
+    //  clear view
+    if (this.componentInstance) {
+      this.componentInstance.destroy();
+    }
+    this.renderer.removeChild(this.el.nativeElement, this.tooltip);
   }
 
   setPosition() {
