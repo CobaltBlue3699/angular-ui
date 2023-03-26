@@ -24,6 +24,10 @@ export class ApiComponent {
           `,
           properties: [
             {
+              name: `auTooltip: string | TemplateRef<any>; `,
+              description: `tooltip directive could represents an embedded template or plain text, depends on what you need.`,
+            },
+            {
               name: `bg-color: string; `,
               description: `tooltip's backgroud color.`,
             },
