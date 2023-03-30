@@ -4,8 +4,8 @@
       <div class="md:w-[80%] w-full flex flex-col page-wrapper">
         <router-outlet></router-outlet>
       </div>
-      <div class="md:block hidden w-[15%] fixed right-2 top-40 h-[calc(100vh_-_200px)] text-left overflow-y-auto">
-        <ul class="anchor-list">
+      <div class="md:flex hidden flex-col hidden w-[15%] fixed right-2 top-40 h-[calc(100vh_-_200px)] overflow-y-auto">
+        <ul class="anchor-list text-left">
           <li 
             class="cursor-pointer"
             *ngFor="let anchor of anchors; let i = index; let first = first; let last = last;"
@@ -18,6 +18,13 @@
             </div>
           </li>
         </ul>
+      </div>
+      <div class="fixed items-center bottom-10 right-10 flex justify-center z-999">
+        <button (click)="base.scrollTop = 0;" class="hover:bg-gray-100 active:bg-gray-200 bg-white dark:bg-slate-800 p-2 w-10 h-10 ring-1 ring-slate-900/5 dark:ring-slate-200/20 shadow-lg rounded-full flex items-center justify-center">
+          <svg class="rotate-180 w-6 h-6 text-violet-500" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </button>
       </div>
     </div>
   </div>
