@@ -1,6 +1,5 @@
 import { HighlightModule } from 'ngx-highlightjs';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { DemoTooltipRoutingModule } from './demo-tooltip-routing.module';
 import { DemoTooltipComponent } from './demo-tooltip.component';
