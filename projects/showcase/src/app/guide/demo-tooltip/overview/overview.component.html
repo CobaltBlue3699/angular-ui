@@ -107,6 +107,19 @@
           <p>{{ 'nonsense' | translate }}</p>
         </div>
       </ng-template>
+      <button class="rounded-md border border-b-sky-300 px-3 py-2 mx-3 duration-300 active:border-sky-600" 
+        [auTooltip]="videoTooltip" bg-color="#fff">
+        tooltip with video.
+      </button>
+      <ng-template #videoTooltip>
+        <div class="min-w-[100px] text-center">
+          <video width="400" controls autoplay loop>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+            Your browser does not support HTML video.
+          </video>
+        </div>
+      </ng-template>
     </ng-template>
     <ng-template #codeBlock>
       <app-tabs>

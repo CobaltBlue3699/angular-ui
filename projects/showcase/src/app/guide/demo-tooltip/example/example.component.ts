@@ -73,11 +73,26 @@ export class ExampleComponent {
   `;
 
   tooltipWithTemplate = `
-  <button class="button" [auTooltip]="sampleTooltip" bg-color="white" color="red">it has an image and some message.</button>
+  <button class="button" [auTooltip]="sampleTooltip" bg-color="white" color="red">
+    it has an image and some message.
+  </button>
   <ng-template #sampleTooltip>
     <div class="min-w-[100px] text-center">
       <img class="m-auto" width="100" src="https://cdn-icons-png.flaticon.com/512/1088/1088537.png">
       <p>{{ 'nonsense' | translate }}</p>
+    </div>
+  </ng-template>
+
+  <button class="button" [auTooltip]="videoTooltip" bg-color="white" color="red">
+    tooltip with video.
+  </button>
+  <ng-template #videoTooltip>
+    <div class="min-w-[100px] text-center">
+      <video width="400" controls autoplay loop>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+        Your browser does not support HTML video.
+      </video>
     </div>
   </ng-template>
   `;

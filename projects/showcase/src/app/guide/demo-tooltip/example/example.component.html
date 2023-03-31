@@ -1,6 +1,4 @@
-<p appAnchor name="Basic usage" class="mt-3">Tooltip provides a text label that is displayed when the user hovers over or longpresses an element.</p>
-<p>You can decide tooltip's position by setting the position property of the <code>auTooltip</code></p>
-<div class="border-b mt-2 border-b-gray-300 pt-5 pb-5">
+<div appAnchor name="Basic usage" class="border-b mt-2 border-b-gray-300 pt-5 pb-5">
   <app-example-panel name="Basic usage">
     <ng-template #exampleBlock>
       <button class="rounded-md border border-b-green-300 px-3 py-2 mx-3 duration-300 active:border-green-600"
@@ -24,10 +22,9 @@
       </app-tabs>
     </ng-template>
   </app-example-panel>
+</div>
 
-  <p>if you want tooltip triggered when the element is loaded.</p>
-  <p>set the <code>activeOnLoaded</code> to true.</p>
-
+<div appAnchor name="active on loaded" class="border-b mt-2 border-b-gray-300 pt-5 pb-5">
   <app-example-panel name="active on loaded">
     <ng-template #exampleBlock>
       <button class="rounded-md border border-b-green-300 px-3 py-2 mx-3 duration-300 active:border-green-600"
@@ -107,6 +104,19 @@
           <p>{{ 'nonsense' | translate }}</p>
         </div>
       </ng-template>
+
+      <button class="rounded-md border border-b-sky-300 px-3 py-2 mx-3 duration-300 active:border-sky-600"
+        [auTooltip]="videoTooltip" bg-color="white">tooltip with video.
+      </button>
+      <ng-template #videoTooltip>
+        <div class="min-w-[100px] text-center">
+          <video width="400" controls autoplay loop>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+            Your browser does not support HTML video.
+          </video>
+        </div>
+      </ng-template>
     </ng-template>
     <ng-template #codeBlock>
       <app-tabs>
@@ -120,15 +130,5 @@
       </app-tabs>
     </ng-template>
   </app-example-panel>
-</div>
-
-<div class="border-b border-b-gray-300 pt-5 pb-5">
-  <h3 class="mt-3 mb-5" appAnchor name="Global config">Specifying global configuration defaults</h3>
-  <p>Default tooltip options can be specified by providing an instance of <code>TooltipGlobalOptions</code> for
-    <code>TOOLTIP_DEFAULT_OPTIONS</code> in your feature module.</p>
-  <app-simple-code
-    name="feature.module.ts"
-    [code]="tooltipGlobalConfigSample">
-  </app-simple-code>
 </div>
 
