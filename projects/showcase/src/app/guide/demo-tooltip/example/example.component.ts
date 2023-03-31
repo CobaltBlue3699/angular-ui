@@ -88,7 +88,7 @@ export class ExampleComponent {
   </button>
   <ng-template #videoTooltip>
     <div class="min-w-[100px] text-center">
-      <video width="400" controls autoplay loop>
+      <video width="400" muted autoplay loop>
         <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
         <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
         Your browser does not support HTML video.
