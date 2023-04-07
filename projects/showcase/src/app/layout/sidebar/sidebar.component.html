@@ -12,7 +12,7 @@
         </li>
         <li *ngFor="let route of routes" [routerLink]="'/guide/' + route.path" [routerLinkActiveOptions]="{ exact: false }" [routerLinkActive]="['bg-gray-900', 'text-white']">
           <a *ngIf="route.path && !isShrink"
-            class="hover:text-white flex block py-1 md:py-3 pl-3 align-middle text-white text-xs no-underline md:text-base text-gray-600 md:text-gray-400">
+            class="hover:text-white cursor-pointer flex block py-1 md:py-3 pl-3 align-middle text-white text-xs no-underline md:text-base text-gray-600 md:text-gray-400">
             <span *ngIf="route.data?.iconHtml">
               <span class="pr-0 md:pr-3" [innerHtml]="route.data?.iconHtml"></span>
             </span>

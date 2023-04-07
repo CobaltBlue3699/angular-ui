@@ -1,16 +1,5 @@
 <div class="angular-ui">
-  <ng-container [ngTemplateOutlet]="alertFullTemplate" [ngTemplateOutletContext]="{
-      $implicit: alertRefs,
-      alertRefs: alertRefs,
-      templates: {
-        successTemplate: successTemplate,
-        infoTemplate: infoTemplate,
-        warningTemplate: warningTemplate,
-        errorTemplate: errorTemplate
-      }
-    }">
-  </ng-container>
-  <ng-container *ngIf="!alertFullTemplate">
+  <ng-template #defaultFullTemplate>
     <div class="w-[600px] absolute top-[30px] z-50 left-[calc(50vw_-_300px)]">
       <ng-container *ngFor="let alertRef of alertRefs">
         <au-alert-wrapper [alertRef]="alertRef" [templates]="{
@@ -21,5 +10,16 @@
         }"></au-alert-wrapper>
       </ng-container>
     </div>
+  </ng-template>
+  <ng-container [ngTemplateOutlet]="alertFullTemplate || defaultFullTemplate" [ngTemplateOutletContext]="{
+      $implicit: alertRefs,
+      alertRefs: alertRefs,
+      templates: {
+        successTemplate: successTemplate,
+        infoTemplate: infoTemplate,
+        warningTemplate: warningTemplate,
+        errorTemplate: errorTemplate
+      }
+    }">
   </ng-container>
 </div>

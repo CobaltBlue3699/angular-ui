@@ -1,0 +1,46 @@
+<p appAnchor name="Basic usage" class="mt-3">The alert service can be used to open alert dialogs with design styling.</p>
+<p>Messages and titles will be translate by the <a href="https://github.com/ngx-translate/core">TranslateModule</a>.</p>
+<div class="border-b mt-2 border-b-gray-300 pt-5 pb-5">
+  <app-example-panel name="Basic usage">
+    <ng-template #exampleBlock>
+      <au-tabs>
+        <au-tab label="1">1</au-tab>
+        <au-tab label="2">2</au-tab>
+        <au-tab label="3">3</au-tab>
+      </au-tabs>
+    </ng-template>
+    <ng-template #codeBlock>
+      <app-tabs>
+        <button tabs-button [auTooltip]="copyToolTipText" position="right"
+          class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(currentCode);">
+          <i class="fa-regular fa-copy"></i>
+        </button>
+        <app-tab (active)="currentCode = simpleUsageHtmlCode;" [name]="'html'">
+          <code [highlight]="simpleUsageHtmlCode"></code>
+        </app-tab>
+      </app-tabs>
+    </ng-template>
+  </app-example-panel>
+</div>
+
+<div appAnchor name="Alert lifetime" class="border-b border-b-gray-300 pt-5 pb-5">
+  <p>You could controll alert instance's lifetime, by passing <code>ttl</code> parameter to alert function.</p>
+  <p>By designed if your ttl is setting to <code>-1</code>, it'll nerver closed.</p>
+  <app-example-panel name="How to controll alert's lifetime">
+    <ng-template #exampleBlock>
+      
+    </ng-template>
+    <ng-template #codeBlock>
+      <app-tabs>
+        <button tabs-button [auTooltip]="copyToolTipText" position="right"
+          class="px-4 cursor-pointer text-xs pt-1" (click)="copyToClipboard(ttlTsCode);">
+          <i class="fa-regular fa-copy"></i>
+        </button>
+        <app-tab [name]="'ts'">
+          <code [highlight]="ttlTsCode"></code>
+        </app-tab>
+      </app-tabs>
+    </ng-template>
+  </app-example-panel>
+</div>
+

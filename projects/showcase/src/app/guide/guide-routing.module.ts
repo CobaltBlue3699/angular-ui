@@ -36,6 +36,16 @@ export const routes: Routes = [
           iconHtml: `<i class="fa-solid fa-question"></i>`,
         },
       },
+      {
+        path: 'tabs',
+        loadChildren: () =>
+          import('./demo-tabs/demo-tabs.module').then((mod) => mod.DemoTabsModule),
+        data: {
+          isMenu: true,
+          keywords: ['tabs', 'tab', 'switch', 'content'],
+          iconHtml: `<img src="assets/img/tabs.png" width="18" class="inline-block align-middle md:text-base"/>`,
+        },
+      },
     ],
   },
   { path: '**', redirectTo: '' },

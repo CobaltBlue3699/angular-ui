@@ -1,0 +1,26 @@
+<div class="angular-ui">
+  <ng-template #defaultTabsWrapper let-tabs="tabs">
+    <div class="h-12 py-2 px-3 mb-0 relative flex flex-row relative justify-start">
+      <strong 
+        [class.text-sky-600]="tab.isActive"
+        class="text-center grid-0 min-w-[160px] px-4 border-b border-b-sky-300 duration-200 cursor-pointer" 
+        *ngFor="let tab of tabs"
+        [class.border-b-transparent]="selectedTab!==tab"
+        (click)="select(tab)">
+        {{ tab.label | translate }}
+      </strong>
+      <div class="w-full flex justify-end">
+        <ng-content select="[tabs-button]"></ng-content>
+      </div>
+    </div>
+    <ng-content select="au-tab"></ng-content>
+  </ng-template>
+  <ng-container [ngTemplateOutlet]="tabsWrapper || defaultTabsWrapper" [ngTemplateOutletContext]="{
+    $implicit: tabs,
+    tabs: tabs
+  }"></ng-container>
+</div>
+
+
+
+
